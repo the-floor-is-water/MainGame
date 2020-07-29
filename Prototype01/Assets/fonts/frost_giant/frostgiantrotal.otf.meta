@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: daae9f2c868a24244ac24e3525fd1056
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Frost Giant Rotalic
+  fontNames:
+  - Frost Giant Rotalic
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 81c548e47777b4a2dbd7acb5c2fb5ba7, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

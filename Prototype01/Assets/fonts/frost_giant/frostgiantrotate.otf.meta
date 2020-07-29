@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 6f6c9f6e4063e4614862f8aec2ca2ec1
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Frost Giant Rotated
+  fontNames:
+  - Frost Giant Rotated
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 630de71a360424b3f98461c9591c75bb, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

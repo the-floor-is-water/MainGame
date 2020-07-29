@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 272e0cb88c7d84936a78d9d1e742b1d9
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Frost Giant Italic
+  fontNames:
+  - Frost Giant Italic
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 20c6b160d7feb4b5d8c13aaf05442881, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
