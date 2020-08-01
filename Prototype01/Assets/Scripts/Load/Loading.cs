@@ -31,7 +31,7 @@ public class Loading : MonoBehaviour
 
     IEnumerator makeLoading(string nextlevel)
     {
-        Debug.Log("El titulo del siguiente nivel es en el Load—makeLoading: " + nextlevel);
+        //Debug.Log("El titulo del siguiente nivel es en el Load—makeLoading: " + nextlevel);
          AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(nextlevel);
         //Bloqueamos el salto automático entre escenas para asegurarnos el control durante el proceso
 		asyncLoad.allowSceneActivation = false;
