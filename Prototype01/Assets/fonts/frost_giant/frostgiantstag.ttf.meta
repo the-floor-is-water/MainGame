@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 285bef85efb2844868b6f7639c524caa
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Frost Giant Staggered
+  fontNames:
+  - Frost Giant Staggered
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 341cb79f41e054721a4aec92b1206325, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 189de301d8d5e4030bf117b1c876cf9f
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Frost Giant Condensed
+  fontNames:
+  - Frost Giant Condensed
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 837c6056260c048ba8a4ee54cbd22620, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

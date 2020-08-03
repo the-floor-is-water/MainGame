@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 9ed507f3b5ec74282b4a151784bcec59
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Frost Giant
+  fontNames:
+  - Frost Giant
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: bc096459fbbce4e12960b6f96f175fec, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -6,6 +6,7 @@ public class onClickStart : MonoBehaviour
 {
    public void Onclickinicio()
    {
-       LoadLevel.loadScene("SampleScene");
+       //Debug.Log("Entro");
+       Loader.loadScene("SampleScene");
    }
 }
