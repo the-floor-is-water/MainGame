@@ -439,6 +439,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 95424797156907436, guid: c3b5979cdf315164681df5c9d08153a4,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3b5979cdf315164681df5c9d08153a4, type: 3}
 --- !u!1 &1309069309
@@ -625,7 +630,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1533279585}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.13414, y: 10.16, z: -1.27}
+  m_LocalPosition: {x: 1.13414, y: 0.985, z: -1.27}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 917646656}
@@ -647,13 +652,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 1533279586}
-  mSpeed: 8
+  walkSpeed: 4
   gravity: -9.81
   groundCheck: {fileID: 1990185130}
-  groundDistance: 0.4
+  groundDistance: 0.5
   groundMask:
     serializedVersion: 2
     m_Bits: 512
+  jumpHeight: 1
+  sprintSpeed: 8
 --- !u!1 &1694305202
 GameObject:
   m_ObjectHideFlags: 0
@@ -691,6 +698,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 13999655}
     m_Modifications:
+    - target: {fileID: 1078650803368350, guid: ca2a18daa91a3b04ca17d8b3c0c192d8, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 1728470848792710, guid: ca2a18daa91a3b04ca17d8b3c0c192d8, type: 3}
       propertyPath: m_Name
       value: Workshop Set (3)
@@ -746,6 +757,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 13999655}
     m_Modifications:
+    - target: {fileID: 1078650803368350, guid: ca2a18daa91a3b04ca17d8b3c0c192d8, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 1728470848792710, guid: ca2a18daa91a3b04ca17d8b3c0c192d8, type: 3}
       propertyPath: m_Name
       value: Workshop Set (1)
@@ -801,6 +816,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 13999655}
     m_Modifications:
+    - target: {fileID: 1078650803368350, guid: ca2a18daa91a3b04ca17d8b3c0c192d8, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 1728470848792710, guid: ca2a18daa91a3b04ca17d8b3c0c192d8, type: 3}
       propertyPath: m_Name
       value: Workshop Set (2)
@@ -873,7 +892,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1990185129}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalPosition: {x: 0, y: -0.914, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1533279587}
@@ -886,6 +905,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 13999655}
     m_Modifications:
+    - target: {fileID: 1078650803368350, guid: ca2a18daa91a3b04ca17d8b3c0c192d8, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 1728470848792710, guid: ca2a18daa91a3b04ca17d8b3c0c192d8, type: 3}
       propertyPath: m_Layer
       value: 9
