@@ -25,7 +25,7 @@ public class Loading : MonoBehaviour
     void Start()
     {
         string nextlevel = Loader.levelName;
-        Debug.Log("El titulo del siguiente nivel es en el Load—start: " + nextlevel);
+        //Debug.Log("El titulo del siguiente nivel es en el Load—start: " + nextlevel);
         StartCoroutine(this.makeLoading(nextlevel));
     }
 
