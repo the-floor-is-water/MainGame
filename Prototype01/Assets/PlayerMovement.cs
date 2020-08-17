@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundMask;
     public float jumpHeight = 3f;
     public float sprintSpeed = 8f;
+    public Animator anim;
 
     Vector3 velocity;
     bool isGrounded;
