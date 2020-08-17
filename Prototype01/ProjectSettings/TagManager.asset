@@ -7,6 +7,7 @@ TagManager:
   - playmenu
   - extraMenu
   - ConfigMenu
+  - Efectos
   layers:
   - Default
   - TransparentFX
