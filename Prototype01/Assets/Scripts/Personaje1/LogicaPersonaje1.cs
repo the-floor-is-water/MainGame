@@ -29,6 +29,7 @@ public class LogicaPersonaje1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Config.configuraciones.ajustarConfiguraciones();
         anim = GetComponent<Animator>();
         puedoSaltar=false;
         velocidadInicial = velocidadMovimiento;
