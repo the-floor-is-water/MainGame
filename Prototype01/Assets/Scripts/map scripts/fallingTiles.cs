@@ -38,24 +38,24 @@ public class fallingTiles : MonoBehaviour
         {
             if(tileFalling)
             {
-                if (rb.transform.position.y <= (initialPosition.y - 10f))
+                if (rb.transform.position.y <= (initialPosition.y - 15f))
                 {
                     restartingPositon = true;
                     rb.useGravity = false;
+                    rb.isKinematic = true;
                     tileFalling = false;
                 }
             }
             else
             {
                 if (rb.transform.position.y <= initialPosition.y)
-                    rb.transform.position = new Vector3(rb.transform.position.x, rb.transform.position.y + 0.2f, rb.transform.position.z);
+                    rb.transform.position = new Vector3(rb.transform.position.x, rb.transform.position.y + 0.02f, rb.transform.position.z);
                 else
                 {
                     rb.transform.rotation = initialRotation;
                     rb.transform.position = initialPosition;
                     restartingPositon = false;
                     playerEntered = false;
-                    rb.isKinematic = true;
                     rb.useGravity = true;
                     tiempo = 0f;
                 }    
