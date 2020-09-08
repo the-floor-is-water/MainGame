@@ -25,13 +25,13 @@ public class Loading : MonoBehaviour
     void Start()
     {
         string nextlevel = Loader.levelName;
-        //Debug.Log("El titulo del siguiente nivel es en el Load—start: " + nextlevel);
+        Debug.Log("El titulo del siguiente nivel es en el Load—start: " + nextlevel);
         StartCoroutine(this.makeLoading(nextlevel));
     }
 
     IEnumerator makeLoading(string nextlevel)
     {
-        //Debug.Log("El titulo del siguiente nivel es en el Load—makeLoading: " + nextlevel);
+        Debug.Log("El titulo del siguiente nivel es en el Load—makeLoading: " + nextlevel);
          AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(nextlevel);
         //Bloqueamos el salto automático entre escenas para asegurarnos el control durante el proceso
 		asyncLoad.allowSceneActivation = false;
@@ -40,6 +40,8 @@ public class Loading : MonoBehaviour
             this.lbConsejos.text = arr[Random.Range( 0, arr.Length)];
 			// de momento para que se notara la escena de carga, en producción se puede retirar sin problemas el waitForSeconds
             yield return new WaitForSeconds(10f);
+
+            Debug.Log("cargando...");
 		}
 
 		//Activamos el salto de escena.
