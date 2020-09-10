@@ -66,7 +66,7 @@ public class fallingTiles : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" || other.tag == "personaje" || other.tag == "heavytrow")
             playerEntered = true;
     }
     void OnTriggerExit(Collider other)
