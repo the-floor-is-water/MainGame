@@ -6,42 +6,64 @@ using UnityEngine.UI;
 public class detectaArmas: MonoBehaviour{
 
 // variables de los slot's de armas (los setie alv en el inspector para no hacer mucho pedo):
-    public Image slot1;
+    public Image slot;
     public Image slot2;
+
+    //este slot solo lo pueden cambiar los especiales:
     public Image slot3;
-
-
-// sprites de los objetos que van en el slot 1:
-// tag: 'pricipal'
-    public Sprite arma1;    //'pricipal_1'
-    public Sprite arma2;    //'pricipal_2'
-    public Sprite arma3;    //'pricipal_3'
-
-// sprites de los objetos que van en el slot 2:
-// tag: 'secundario'
-
-    public Sprite subArma1; //'secundario_1'
-    public Sprite subArma2; //'secundario_2'
-    public Sprite subArma3; //'secundario_3'
-
-// sprites de los objetos que van en el slot 2:
-// tag: 'aditamento'
-
-    public Sprite espArma1;  //'aditamento_1'
-    public Sprite espArma2;  //'aditamento_2'
-    public Sprite espArma3;  //'aditamento_3'
+    
+    public Sprite arma;    
 
 
 
-    private void OnCollisionEnter(Collision other) {
-        this.OncollisionAction( other.gameObject.tag );
+    void OnTriggerEnter3D(Collision other) {
+        
+       /*  Debug.Log( other.gameObject.tag );
+        Debug.Log( this.gameObject.tag );
+    
+        if(this.gameObject.tag == "Arma")
+        {
+            if(this.slot2.sprite == null || this.slot.sprite == null)
+            {
+                this.slot2.sprite = this.slot.sprite;
+                this.slot.sprite = this.arma;
+            }
+        }
+
+        if(this.gameObject.tag == "Arma_especial")
+        {
+            this.slot3.sprite = this.arma;
+        }*/
     }
 
-    private void OnCollisionStay(Collision other) {
-         this.OncollisionAction( other.gameObject.tag );
+    void OnCollisionStay(Collision other) {
+        Debug.Log( other.gameObject.tag );
+        Debug.Log( this.gameObject.tag );
+    
+        if(this.gameObject.tag == "Arma")
+        {
+            if(this.slot2.sprite == null && this.slot.sprite != null)
+            {
+                if(this.slot.sprite != this.arma)
+                {
+                    this.slot2.sprite = this.slot.sprite;
+                    this.slot.sprite = this.arma;
+                }
+            }
+            else if(this.slot2.sprite == null && this.slot.sprite == null)
+            {
+                this.slot.sprite = this.arma;
+            }
+        }
+
+        if(this.gameObject.tag == "Arma_especial")
+        {
+            this.slot3.sprite = this.arma;
+        }
+
     }
 
-    private void OnCollisionExit(Collision other) {
+ /*   void OnCollisionExit(Collision other) {
         
     }
 
@@ -125,6 +147,6 @@ public class detectaArmas: MonoBehaviour{
 
 
 
-    }
+    }*/
 
 }

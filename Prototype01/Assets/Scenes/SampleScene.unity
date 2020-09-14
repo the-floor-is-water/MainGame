@@ -589,14 +589,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.95294124, g: 0.95294124, b: 0.95294124, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d8fd9fe53b1d95e4db0c86332e57accc, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1067,6 +1067,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: pugil
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3dd9e3a38de820e4b9bdc9034402705e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Arma
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3dd9e3a38de820e4b9bdc9034402705e, type: 3}
 --- !u!1 &308092188
@@ -1219,7 +1224,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh19924
+  m_Name: pb_Mesh21854
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1557,7 +1562,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh19634
+  m_Name: pb_Mesh21546
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3000,8 +3005,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00015068, y: -0.0000019073}
-  m_SizeDelta: {x: 372.94098, y: 372.94098}
+  m_AnchoredPosition: {x: -4.2, y: 19.2}
+  m_SizeDelta: {x: 329.68408, y: 336.9807}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &756592695
 MonoBehaviour:
@@ -3016,14 +3021,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.7843138, g: 0.7843138, b: 0.77647066, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 488a278d765de2b4dba74296700f05d7, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3783,6 +3788,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: pogo-boot
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4b3802b3e5c2cba41a5e047ee5d2fa0a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Arma_especial
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b3802b3e5c2cba41a5e047ee5d2fa0a, type: 3}
 --- !u!1 &797347667 stripped
@@ -3805,6 +3815,22 @@ CapsuleCollider:
   m_Height: 9.03286
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &797347670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 797347667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6028ba711b9747939c69cef1a1594e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slot: {fileID: 2016621680}
+  slot2: {fileID: 110819074}
+  slot3: {fileID: 756592695}
+  arma: {fileID: 21300000, guid: 488a278d765de2b4dba74296700f05d7, type: 3}
 --- !u!1 &804529855
 GameObject:
   m_ObjectHideFlags: 0
@@ -4952,6 +4978,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8237830141687700836, guid: 976d21e06bdf8a54f8e420c1e7a302d6,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8237830141687700841, guid: 976d21e06bdf8a54f8e420c1e7a302d6,
         type: 3}
       propertyPath: m_Enabled
@@ -5276,6 +5307,35 @@ Rigidbody:
     type: 3}
   m_PrefabInstance: {fileID: 1446748588}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1446748613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1446748589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00aa7818ba1ef4d28bbc652dc263e616, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slot_1: {fileID: 2016621680}
+  slot_2: {fileID: 110819074}
+  slot_3: {fileID: 756592695}
+--- !u!136 &1446748614
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1446748589}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.2258257
+  m_Height: 1.4246817
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.7288971, z: 0.030463964}
 --- !u!1 &1451134853
 GameObject:
   m_ObjectHideFlags: 0
@@ -5471,7 +5531,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 1}
+  m_Color: {r: 0.78823537, g: 0.78823537, b: 0.7843138, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5513,6 +5573,7 @@ GameObject:
   - component: {fileID: 1533279587}
   - component: {fileID: 1533279586}
   - component: {fileID: 1533279588}
+  - component: {fileID: 1533279589}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Untagged
@@ -5546,7 +5607,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1533279585}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.13414, y: 38.442, z: -1.27}
+  m_LocalPosition: {x: -4.974, y: 39.043, z: -0.774}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1514030555}
@@ -5578,6 +5639,20 @@ MonoBehaviour:
   jumpHeight: 1
   sprintSpeed: 8
   anim: {fileID: 0}
+--- !u!136 &1533279589
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533279585}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  m_Radius: 0.28370795
+  m_Height: 1.914032
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.13937378, z: 0.21629205}
 --- !u!1 &1546715344
 GameObject:
   m_ObjectHideFlags: 0
@@ -6008,10 +6083,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.530843
+  m_Radius: 0.54871035
   m_Height: 1.4630024
   m_Direction: 2
-  m_Center: {x: 0, y: 0, z: -1.83}
+  m_Center: {x: -2.3845824e-14, y: 0.017867386, z: -1.8299999}
 --- !u!136 &1747868523
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6022,10 +6097,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.530843
-  m_Height: 1.4630024
+  m_Radius: 0.5647702
+  m_Height: 1.5560443
   m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 1.8299999}
+  m_Center: {x: 7.14002e-15, y: 0.03392726, z: 1.8765208}
 --- !u!136 &1747868524
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6036,10 +6111,26 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.27571133
+  m_Radius: 0.37782866
   m_Height: 2.5856683
   m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: -0, y: 0.10211736, z: 0}
+--- !u!114 &1747868525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1747868520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6028ba711b9747939c69cef1a1594e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slot: {fileID: 2016621680}
+  slot2: {fileID: 110819074}
+  slot3: {fileID: 756592695}
+  arma: {fileID: 21300000, guid: d8fd9fe53b1d95e4db0c86332e57accc, type: 3}
 --- !u!1 &1764575169
 GameObject:
   m_ObjectHideFlags: 0
@@ -6139,6 +6230,22 @@ CapsuleCollider:
   m_Height: 11.546769
   m_Direction: 1
   m_Center: {x: -2.71, y: -3.2200003, z: 3.23}
+--- !u!114 &1776462903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1776462900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6028ba711b9747939c69cef1a1594e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slot: {fileID: 2016621680}
+  slot2: {fileID: 110819074}
+  slot3: {fileID: 756592695}
+  arma: {fileID: 21300000, guid: db868068558b36c4ab2c7fd83ffc3a0e, type: 3}
 --- !u!1 &1794037352
 GameObject:
   m_ObjectHideFlags: 0
@@ -6298,6 +6405,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: box-gloves
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d5700cc3d1ad6d644aa39258c38b7f05,
+        type: 3}
+      propertyPath: m_TagString
+      value: Arma
       objectReference: {fileID: 0}
     - target: {fileID: 1151388028547126963, guid: d5700cc3d1ad6d644aa39258c38b7f05,
         type: 3}
@@ -6817,7 +6929,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: db868068558b36c4ab2c7fd83ffc3a0e, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

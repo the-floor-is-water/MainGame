@@ -29,7 +29,7 @@ public class Config : MonoBehaviour
     void Awake ()
     {
         if(configuraciones == null) {
-            Debug.Log("no existo así que me creare a mi mismo");
+            //Debug.Log("no existo así que me creare a mi mismo");
             this.rutaConfJuegoAplicacion = Application.persistentDataPath + "/Conf.TFW";
             cargar();
             configuraciones = this;
@@ -38,7 +38,7 @@ public class Config : MonoBehaviour
         }
         else if(configuraciones != this)
         {
-            Debug.Log("ya existo!");
+            //Debug.Log("ya existo!");
              this.ajustarConfiguraciones();
             Destroy(gameObject);
         }
@@ -52,7 +52,7 @@ public class Config : MonoBehaviour
 
     public void ajustarConfiguraciones(){
 
-        Debug.Log( "Se mando a llamar el metodo ajustarConfiguraciones" );
+        //Debug.Log( "Se mando a llamar el metodo ajustarConfiguraciones" );
         this.sources = GameObject.FindSceneObjectsOfType(typeof(AudioSource)) as AudioSource[];
         foreach (var audio in sources)
           {
@@ -65,9 +65,9 @@ public class Config : MonoBehaviour
 
           QualitySettings.SetQualityLevel(this.calidad_de_graficos, true);
 
-        Debug.Log( "se ajusto los graficos en nivel: "+ this.calidad_de_graficos); 
-        Debug.Log("se ajusto el volumen de la musica en: "+ this.volumenMusica); 
-        Debug.Log("por ultimo el volumen de los efectos fue ajustado a: " + this.volumenefectos);
+        //Debug.Log( "se ajusto los graficos en nivel: "+ this.calidad_de_graficos); 
+        //Debug.Log("se ajusto el volumen de la musica en: "+ this.volumenMusica); 
+        //Debug.Log("por ultimo el volumen de los efectos fue ajustado a: " + this.volumenefectos);
 
         this.sources = null; 
 
