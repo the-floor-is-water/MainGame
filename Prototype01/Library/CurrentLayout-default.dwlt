@@ -15,9 +15,15 @@ MonoBehaviour:
   m_PixelRect:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 43
     width: 1920
     height: 997
+=======
+    y: 44
+    width: 1440
+    height: 856
+>>>>>>> Luna
   m_ShowMode: 4
   m_Title: Scene
   m_RootView: {fileID: 2}
@@ -44,8 +50,13 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 1920
     height: 997
+=======
+    width: 1440
+    height: 856
+>>>>>>> Luna
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_UseTopView: 1
@@ -93,8 +104,13 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 977
     width: 1920
+=======
+    y: 836
+    width: 1440
+>>>>>>> Luna
     height: 20
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
@@ -116,12 +132,21 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 30
+<<<<<<< HEAD
     width: 1920
     height: 947
   m_MinSize: {x: 677, y: 492}
   m_MaxSize: {x: 12002, y: 14042}
   vertical: 1
   controlID: 29
+=======
+    width: 1440
+    height: 806
+  m_MinSize: {x: 677, y: 342}
+  m_MaxSize: {x: 12002, y: 8042}
+  vertical: 0
+  controlID: 114
+>>>>>>> Luna
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -141,12 +166,21 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 1920
     height: 947
   m_MinSize: {x: 677, y: 492}
   m_MaxSize: {x: 12002, y: 14042}
   vertical: 1
   controlID: 30
+=======
+    width: 1440
+    height: 806
+  m_MinSize: {x: 677, y: 342}
+  m_MaxSize: {x: 12002, y: 8042}
+  vertical: 1
+  controlID: 115
+>>>>>>> Luna
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -167,12 +201,21 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 1920
     height: 676
   m_MinSize: {x: 677, y: 221}
   m_MaxSize: {x: 12002, y: 4021}
   vertical: 0
   controlID: 31
+=======
+    width: 1440
+    height: 535
+  m_MinSize: {x: 677, y: 221}
+  m_MaxSize: {x: 12002, y: 4021}
+  vertical: 0
+  controlID: 94
+>>>>>>> Luna
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -190,8 +233,13 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 216
     height: 676
+=======
+    width: 242
+    height: 535
+>>>>>>> Luna
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 14}
@@ -217,8 +265,13 @@ MonoBehaviour:
     serializedVersion: 2
     x: 216
     y: 0
+<<<<<<< HEAD
     width: 1334
     height: 676
+=======
+    width: 922
+    height: 535
+>>>>>>> Luna
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 15}
@@ -245,8 +298,13 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1550
     y: 0
+<<<<<<< HEAD
     width: 370
     height: 676
+=======
+    width: 276
+    height: 535
+>>>>>>> Luna
   m_MinSize: {x: 275, y: 50}
   m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 17}
@@ -264,24 +322,38 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ProjectBrowser
+  m_Name: ConsoleWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 676
     width: 1920
     height: 271
   m_MinSize: {x: 230, y: 271}
   m_MaxSize: {x: 10000, y: 10021}
   m_ActualView: {fileID: 18}
+=======
+    y: 535
+    width: 1440
+    height: 271
+  m_MinSize: {x: 100, y: 121}
+  m_MaxSize: {x: 4000, y: 4021}
+  m_ActualView: {fileID: 19}
+>>>>>>> Luna
   m_Panes:
   - {fileID: 18}
   - {fileID: 19}
+<<<<<<< HEAD
   - {fileID: 20}
   m_Selected: 0
   m_LastSelected: 2
+=======
+  m_Selected: 2
+  m_LastSelected: 0
+>>>>>>> Luna
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -328,10 +400,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 216
     y: 73
     width: 1332
     height: 655
+=======
+    x: 242
+    y: 74
+    width: 920
+    height: 514
+>>>>>>> Luna
   m_ViewDataDictionary: {fileID: 0}
   m_SerializedViewNames: []
   m_SerializedViewValues: []
@@ -339,7 +418,11 @@ MonoBehaviour:
   m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
+<<<<<<< HEAD
   m_TargetSize: {x: 1332, y: 634}
+=======
+  m_TargetSize: {x: 920, y: 493}
+>>>>>>> Luna
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -354,10 +437,17 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
+<<<<<<< HEAD
     m_HBaseRangeMin: -666
     m_HBaseRangeMax: 666
     m_VBaseRangeMin: -317
     m_VBaseRangeMax: 317
+=======
+    m_HBaseRangeMin: -460
+    m_HBaseRangeMax: 460
+    m_VBaseRangeMin: -246.5
+    m_VBaseRangeMax: 246.5
+>>>>>>> Luna
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -375,16 +465,24 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
+<<<<<<< HEAD
       width: 1332
       height: 634
     m_Scale: {x: 1, y: 1}
     m_Translation: {x: 666, y: 317}
+=======
+      width: 920
+      height: 493
+    m_Scale: {x: 1, y: 1}
+    m_Translation: {x: 460, y: 246.5}
+>>>>>>> Luna
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
+<<<<<<< HEAD
       x: -666
       y: -317
       width: 1332
@@ -392,6 +490,15 @@ MonoBehaviour:
     m_MinimalGUI: 1
   m_defaultScale: 1
   m_LastWindowPixelSize: {x: 1332, y: 655}
+=======
+      x: -460
+      y: -246.5
+      width: 920
+      height: 493
+    m_MinimalGUI: 1
+  m_defaultScale: 1
+  m_LastWindowPixelSize: {x: 920, y: 514}
+>>>>>>> Luna
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
@@ -419,16 +526,28 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 73
     width: 215
     height: 655
+=======
+    y: 74
+    width: 241
+    height: 514
+>>>>>>> Luna
   m_ViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
       m_SelectedIDs: 2a500000
       m_LastClickedID: 0
       m_ExpandedIDs: 6af9ffff06fbffffc04c0000864d0000824e00009e5000003e520000a252000032540000
+=======
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 4af5ffff34fbffff
+>>>>>>> Luna
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -739,10 +858,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 1550
     y: 73
     width: 369
     height: 655
+=======
+    x: 1164
+    y: 74
+    width: 275
+    height: 514
+>>>>>>> Luna
   m_ViewDataDictionary: {fileID: 0}
   m_ObjectsLockedBeforeSerialization: []
   m_InstanceIDsLockedBeforeSerialization: 
@@ -796,21 +922,36 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
+<<<<<<< HEAD
     - Assets/Materials
+=======
+    - Assets/Scenes
+>>>>>>> Luna
     m_Globs: []
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
+<<<<<<< HEAD
   - Assets/Materials
+=======
+  - Assets/Scenes
+>>>>>>> Luna
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\Users\Alonso\Documents\Unity\Projects\MainGame\Prototype01
   m_LockTracker:
     m_IsLocked: 1
   m_FolderTreeState:
+<<<<<<< HEAD
     scrollPos: {x: 0, y: 186}
     m_SelectedIDs: da5a0000
     m_LastClickedID: 23258
     m_ExpandedIDs: 00000000885a00008a5a00008c5a00008e5a0000905a000000ca9a3b
+=======
+    scrollPos: {x: 0, y: 31}
+    m_SelectedIDs: d8530000
+    m_LastClickedID: 21464
+    m_ExpandedIDs: 00000000685300006a530000
+>>>>>>> Luna
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -882,7 +1023,11 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
+<<<<<<< HEAD
       m_ClientGUIView: {fileID: 10}
+=======
+      m_ClientGUIView: {fileID: 11}
+>>>>>>> Luna
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -916,8 +1061,13 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 749
     width: 1920
+=======
+    y: 609
+    width: 1440
+>>>>>>> Luna
     height: 250
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
@@ -945,8 +1095,13 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 749
     width: 1920
+=======
+    y: 609
+    width: 1440
+>>>>>>> Luna
     height: 250
   m_ViewDataDictionary: {fileID: 0}
 --- !u!114 &21
