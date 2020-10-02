@@ -91,8 +91,9 @@ Right Trigger Shared Axis       3rd Axis                                    0 to
 
             this.enPausa = !this.enPausa;
             menuDePausa.SetActive( this.enPausa );
-            slots.SetActive( this.enPausa );
+            slots.SetActive( !this.enPausa );
             controlDeCamara.enabled = !this.enPausa;
+            
         }
 
     }
@@ -118,7 +119,7 @@ Right Trigger Shared Axis       3rd Axis                                    0 to
 
         this.enPausa = !this.enPausa;
         menuDePausa.SetActive( this.enPausa );
-        slots.SetActive( this.enPausa );
+        slots.SetActive( !this.enPausa );
         controlDeCamara.enabled = !this.enPausa;
     }
 

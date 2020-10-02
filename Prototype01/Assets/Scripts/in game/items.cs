@@ -8,10 +8,10 @@ public class items : MonoBehaviour
 
 
     // el slot 1 es el que marcara el item activo si toma un nuevo item este reemplaza al que esta en la casilla de activo
-    public Image slot_1; 
+    public Slot slot_1; 
     
-    public Image slot_2; 
-    public Image slot_3;
+    public Slot slot_2; 
+    public Slot slot_3;
 
     // Start is called before the first frame update
     void Start()
@@ -27,32 +27,51 @@ public class items : MonoBehaviour
     void Update()
     {
 
-        //paso a detectar las teclas presionadas:
+        if(this.slot_1.estaVacio() && !this.slot_2.estaVacio())
+        {
+            this.slot_1.setItem(this.slot_2);
+            this.slot_2.clearSlot();
+        }
 
+        //paso a detectar las teclas presionadas:
         if( Input.GetKeyDown( KeyCode.C ) ){
-            Sprite arm1 = this.slot_1.sprite;
-            Sprite arm2 = this.slot_2.sprite;
             
-            if(arm1 != null && arm2 != null)
+            if(!this.slot_1.estaVacio() && !this.slot_2.estaVacio())
             {
-                this.slot_1.sprite = arm2;
-                this.slot_2.sprite = arm1;
+                Slot aux_2 = new Slot();
+                
+                aux_2.setItem(this.slot_1);
+
+                this.slot_1.setItem(this.slot_2);
+                this.slot_2.setItem(aux_2);
+
             }
            
         }
 
+        if( Input.GetKeyDown( KeyCode.L ) ){
+            this.slot_1.usar_arma_o_Item();
+        }
 
         if( Input.GetKeyDown( KeyCode.Q ) )
         {
-            this.slot_1.sprite = this.slot_2.sprite;
-            this.slot_2.sprite = null;
-
+            this.slot_1.setItem( this.slot_2 );
+            this.slot_2.clearSlot();
+            // this.slot_1.sprite = this.slot_2.sprite;
+            // this.slot_2.sprite = null;
         }
 
         if( Input.GetKeyDown( KeyCode.E ))
         {
-
+            this.slot_3.usar_arma_o_Item();
         }
+
+        if( Input.GetKeyDown( KeyCode.F ))
+        {
+            this.slot_3.clearSlot();
+        }
+
+        
 
 
         
