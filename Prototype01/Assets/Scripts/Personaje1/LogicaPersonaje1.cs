@@ -35,6 +35,7 @@ public class LogicaPersonaje1 : MonoBehaviour
         velocidadAgachado = velocidadMovimiento * .5f;
         velocidadCorriendo = velocidadMovimiento + 2f;
        
+        Config.configuraciones.ajustarConfiguraciones();
     }
     
     // Update is called once per frame

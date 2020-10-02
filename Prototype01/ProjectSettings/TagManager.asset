@@ -8,6 +8,8 @@ TagManager:
   - extraMenu
   - ConfigMenu
   - Efectos
+  - Arma
+  - Arma_especial
   layers:
   - Default
   - TransparentFX

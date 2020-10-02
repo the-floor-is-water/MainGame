@@ -26,13 +26,14 @@ public class clickedAnimation : MonoBehaviour
         if(animate != null)
         {
             bool isclicked = animate.GetBool("isclicked");
+            
+            animate.SetBool("isclicked", !isclicked);
 
             foreach( Transform child in obj.transform )
             {
                 child.gameObject.SetActive( isclicked );
             }
 
-            animate.SetBool("isclicked", !isclicked);
         }
 
        //StartCoroutine(this.waitToDisabled(obj));
