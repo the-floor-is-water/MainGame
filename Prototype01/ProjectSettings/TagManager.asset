@@ -10,6 +10,12 @@ TagManager:
   - Efectos
   - Arma
   - Arma_especial
+  - Jugador1
+  - personaje
+  - Jugador2
+  - dano
+  - Jugador3
+  - Jugador4
   layers:
   - Default
   - TransparentFX
@@ -23,7 +29,7 @@ TagManager:
   - Ground
   - Player
   - magicCylinders
-  - 
+  - Proyectil
   - 
   - 
   - 
