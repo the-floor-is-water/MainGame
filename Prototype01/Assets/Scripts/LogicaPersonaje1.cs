@@ -3,6 +3,7 @@ using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class LogicaPersonaje1 : MonoBehaviour
@@ -17,6 +18,7 @@ public class LogicaPersonaje1 : MonoBehaviour
     public Rigidbody rb;
     public float fuerzaDeSalto = 14f;
     public bool puedoSaltar;
+    public bool puedoCorrer;
     public float fuerzaExtra = 0;
     public CapsuleCollider colParado;
     public CapsuleCollider colAgachado;
@@ -41,6 +43,7 @@ public class LogicaPersonaje1 : MonoBehaviour
     public float Angulo;
     public bool armaDisparo = false;
     int dpad = 0;
+    bool resetSalte = false;
     public Controles controles;
     // Start is called before the first frame update
 
@@ -50,6 +53,7 @@ public class LogicaPersonaje1 : MonoBehaviour
         anim = GetComponent<Animator>();
         rb = this.GetComponent<Rigidbody>();
         puedoSaltar = false;
+        
         velocidadInicial = velocidadMovimiento;
         velocidadAgachado = velocidadMovimiento * .5f;
         velocidadCorriendo = velocidadMovimiento + 2f;
@@ -59,6 +63,114 @@ public class LogicaPersonaje1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //----------------------------------------Empuje Parado-----------------------------------------------------------------------------------
+        RaycastHit hit;
+        puedoCorrer = true;
+        Vector3 forward = transform.TransformDirection(Vector3.forward);
+         Vector3 left = transform.TransformDirection(Vector3.left);
+         Vector3 right = transform.TransformDirection(Vector3.right);
+        //Ray ray = new Ray(transform.position + new Vector3(0,1.1f,0), forward);
+        Ray ray = new Ray(transform.position + new Vector3(0, .3f, 0), forward);
+         Debug.DrawRay(transform.position + new Vector3(0, .5f, 0), forward, Color.blue);
+         Debug.DrawRay(transform.position + new Vector3(0, 1.1f, 0), forward, Color.green);
+         Debug.DrawRay(transform.position + new Vector3(0, 2.2f, 0), forward, Color.black);
+         Debug.DrawRay(transform.position + new Vector3(0, 2.2f, 0), left, Color.black);
+
+         if (Physics.Raycast(transform.position + new Vector3(0, 1.1f, 0), forward, .4f) && !estoyAgachado)
+         {
+
+             Debug.Log("Rayo colisiono");
+             rb.AddForce((transform.forward * -1) * 10, ForceMode.Impulse);
+            puedoCorrer = false;
+           
+         }
+         if (Physics.Raycast(transform.position + new Vector3(0, 2f, 0), forward, .4f) && !estoyAgachado)
+         {
+
+             Debug.Log("Rayo colisiono");
+             rb.AddForce((transform.forward * -1) * 10, ForceMode.Impulse);
+            puedoCorrer = false;
+        }
+
+        if (Physics.Raycast(transform.position + new Vector3(0, 1.1f, 0), forward*-1, .4f) && !estoyAgachado)
+        {
+
+            Debug.Log("Rayo colisiono");
+            rb.AddForce((transform.forward) * 10, ForceMode.Impulse);
+            puedoCorrer = false;
+        }
+        if (Physics.Raycast(transform.position + new Vector3(0, 2f, 0), forward*-1, .4f) && !estoyAgachado)
+        {
+
+            Debug.Log("Rayo colisiono");
+            rb.AddForce((transform.forward) * 10, ForceMode.Impulse);
+            puedoCorrer = false;
+        }
+
+        if (Physics.Raycast(transform.position + new Vector3(0, 1.1f, 0), right, .4f) && !estoyAgachado)
+        {
+
+            Debug.Log("Rayo colisiono");
+            rb.AddForce((transform.right*-1) * 10, ForceMode.Impulse);
+            puedoCorrer = false;
+        }
+        if (Physics.Raycast(transform.position + new Vector3(0, 2f, 0), right, .4f) && !estoyAgachado)
+        {
+
+            Debug.Log("Rayo colisiono");
+            rb.AddForce((transform.right*-1) * 10, ForceMode.Impulse);
+            puedoCorrer = false;
+        }
+
+        if (Physics.Raycast(transform.position + new Vector3(0, 1.1f, 0), left, .4f) && !estoyAgachado)
+        {
+
+            Debug.Log("Rayo colisiono");
+            rb.AddForce((transform.right) * 10, ForceMode.Impulse);
+            puedoCorrer = false;
+        }
+        if (Physics.Raycast(transform.position + new Vector3(0, 2f, 0), left, .4f) && !estoyAgachado)
+        {
+
+            Debug.Log("Rayo colisiono");
+            rb.AddForce((transform.right) * 10, ForceMode.Impulse);
+            puedoCorrer = false;
+        }
+
+        /* RaycastHit hit;
+
+         Vector3 p1 = transform.position + new Vector3(0,1.8f,0);
+         float distanceToObstacle = 0;
+
+         // Cast a sphere wrapping character controller 10 meters forward
+         // to see if it is about to hit anything.
+         if (Physics.SphereCast(p1,1, transform.forward, out hit, .3f))
+         {
+             distanceToObstacle = hit.distance;
+             Debug.Log("Colisiono con " + hit.collider.name);
+             rb.AddForce((transform.forward * -1) * 6, ForceMode.Impulse);
+         }
+         if (Physics.SphereCast(p1,1, transform.right, out hit, .3f))
+         {
+             distanceToObstacle = hit.distance;
+             Debug.Log("Colisiono con " + hit.collider.name);
+             rb.AddForce((transform.right * -1) * 6, ForceMode.Impulse);
+         }
+         if (Physics.SphereCast(p1, 1, transform.right*-1, out hit, .3f))
+         {
+             distanceToObstacle = hit.distance;
+             Debug.Log("Colisiono con " + hit.collider.name);
+             rb.AddForce((transform.right) * 6, ForceMode.Impulse);
+         }*/
+
+
+        //---------------------------------------Empuje agachado----------------------------------------------------------------------------------
+        /* if (Physics.Raycast(transform.position + new Vector3(0, .5f, 0), forward, .5f) && estoyAgachado)
+         {
+
+             Debug.Log("Rayo colisiono");
+             rb.AddForce((transform.forward * -1) * 7, ForceMode.Impulse);
+         }*/
         //---------------------------------------------------------------------Controles-------------------------------------------------------------------------------------------------------------
         tiempo = tiempo + 1 * Time.deltaTime;
         //Checa si ya paso la animacion de levantarse
@@ -82,7 +194,7 @@ public class LogicaPersonaje1 : MonoBehaviour
         if (puedoMoverme)
         {
 
-
+            resetSalte = false;
             x = controles.moveHL;
             y = controles.moveVL;
             if (x >= .5 || x <= -.5)
@@ -107,6 +219,7 @@ public class LogicaPersonaje1 : MonoBehaviour
                 if (controles.aButton)
                 {
                     saltar();
+                    resetSalte = true;
                 }
                 anim.SetBool("tocarSuelo", true);
             }
@@ -152,7 +265,7 @@ public class LogicaPersonaje1 : MonoBehaviour
             //Fin de metodo de agacharse---------------------------------------------------------------------------------------------------------------------------------------
 
             //Metodo de correr--------------------------------------------------------------------------------------------------------------------------------------------------
-            if (controles.leftBumper && (y == 1 || y == -1 || x == 1 || x == -1) && (refrescoCorrer <= tiempo) && puedoSaltar)
+            if (controles.leftBumper && (y == 1 || y == -1 || x == 1 || x == -1) && (refrescoCorrer <= tiempo) && puedoSaltar && puedoCorrer)
             {
                 correr(true);
             }
@@ -180,6 +293,10 @@ public class LogicaPersonaje1 : MonoBehaviour
     {
         anim.SetBool("salte", true);
         rb.AddForce(new Vector3(0, fuerzaDeSalto, 0), ForceMode.Impulse);
+        if (puedoSaltar)
+        {
+            anim.SetBool("salte", false);
+        }
     }
     public void agachado(bool agachado)
     {

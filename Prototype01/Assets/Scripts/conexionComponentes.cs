@@ -80,10 +80,10 @@ public class conexionComponentes : MonoBehaviour
 
                 }*/
         cam2.transform.position = hips.transform.position;
-        if (logicaPer.tirado && !myRagController.isGettingUp)
+        /*if (logicaPer.tirado && !myRagController.isGettingUp)
         {
             animatedM.transform.position = hips.transform.position;
-        }
+        }*/
         /* if (Input.GetMouseButton(0))
          {
              float bulletForce = 4;
@@ -120,7 +120,7 @@ public class conexionComponentes : MonoBehaviour
             //toggleDead();
             //myRagController.ragdoll.RepairBones();
             //myRagController.StartGetUp();
-            //animatedM.transform.position = hips.transform.position;
+            animatedM.transform.position = hips.transform.position;
             ragdoll.gameObject.SetActive(false);
             animatedM.gameObject.SetActive(true);
             //nav.enabled = true;

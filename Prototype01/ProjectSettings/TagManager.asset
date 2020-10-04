@@ -16,6 +16,8 @@ TagManager:
   - dano
   - Jugador3
   - Jugador4
+  - falling-tile
+  - Tuneado
   layers:
   - Default
   - TransparentFX

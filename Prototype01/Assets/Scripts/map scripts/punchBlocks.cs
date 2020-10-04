@@ -40,7 +40,7 @@ public class punchBlocks : MonoBehaviour
             if (goingForward)
             {
                 rb.transform.position = new Vector3(rb.transform.position.x, rb.transform.position.y, rb.transform.position.z - ms);
-                if (rb.transform.position.z <= (initialPosition.z - 8f))
+                if (rb.transform.position.z <= (initialPosition.z - 20f))
                     goingForward = false;
             }
             else

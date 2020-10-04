@@ -41,18 +41,46 @@ public class Dano : MonoBehaviour
             logicaPer.rb.isKinematic = false;
             miConexionComponentes.refrescoCaido = miConexionComponentes.tiempo + 4f;
             miCabeza.contadorDeColision = 0;
-            if (other.gameObject.layer == 12)
+            if (other.GetComponentInParent<movimientoProyectil>()!=null)
             {
-                PosicionD = other.GetComponentInParent<movimientoProyectil>().posicion;
+                /*PosicionD = other.GetComponentInParent<movimientoProyectil>().posicion;
                 var variable = PosicionD -transform.position;
-                miConexionComponentes.hips.GetComponent<Rigidbody>().AddForce(variable.normalized * bulletForce, ForceMode.VelocityChange);
+                miConexionComponentes.hips.GetComponent<Rigidbody>().AddForce(variable.normalized * bulletForce, ForceMode.VelocityChange);*/
+                PosicionD = other.transform.position;
+                var variable = transform.position - PosicionD;
+                miConexionComponentes.hips.GetComponent<Rigidbody>().AddForce(variable.normalized * other.GetComponentInParent<movimientoProyectil>().bulletForce, ForceMode.VelocityChange);
             }
-            
+            if (other.GetComponentInParent<movimientoProyectil2>() != null)
+            {
+                /*PosicionD = other.GetComponentInParent<movimientoProyectil2>().posicion;
+                var variable = PosicionD - transform.position;
+                miConexionComponentes.hips.GetComponent<Rigidbody>().AddForce(variable.normalized * bulletForce, ForceMode.VelocityChange);*/
+                PosicionD = other.transform.position;
+                var variable = transform.position - PosicionD;
+                miConexionComponentes.hips.GetComponent<Rigidbody>().AddForce(variable.normalized * other.GetComponentInParent<movimientoProyectil2>().bulletForce, ForceMode.VelocityChange);
+            }
+            if (other.GetComponentInParent<movimientoProyectil3>() != null)
+            {
+                PosicionD = other.transform.position;
+                var variable = PosicionD - transform.position;
+                miConexionComponentes.hips.GetComponent<Rigidbody>().AddForce(variable.normalized * other.GetComponentInParent<movimientoProyectil3>().bulletForce, ForceMode.VelocityChange);
+                /*PosicionD = other.transform.position;
+                var variable = transform.position - PosicionD;
+                miConexionComponentes.hips.GetComponent<Rigidbody>().AddForce(variable.normalized * other.GetComponentInParent<movimientoProyectil3>().bulletForce, ForceMode.VelocityChange);*/
+            }
+            if (other.GetComponentInParent<Chaser>() != null)
+            {
+                PosicionD = other.transform.position;
+                var variable = transform.position - PosicionD;
+                miConexionComponentes.hips.GetComponent<Rigidbody>().AddForce((((variable.normalized * 3f)) + new Vector3(0, 5, 0)), ForceMode.VelocityChange);
+            }
+
         }
         Vector3 normal =logicaPer.rb.transform.up;
         Vector3 vel = logicaPer.rb.velocity;
         Angulo = Vector3.Angle(vel, -normal);
         logicaPer.Angulo = Angulo;
+
         
     }
     private void OnCollisionEnter(Collision collision)
