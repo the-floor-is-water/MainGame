@@ -115,7 +115,7 @@ public class conexionComponentes : MonoBehaviour
             logicaPer.rb.isKinematic = false;
 
         }
-        if (controles.aButton && logicaPer.tirado && !myRagController.isGettingUp && logicaPer.ragdollSuelo && refrescoCaido <= tiempo)
+        if ((controles.aButton || controles.spacebar) && logicaPer.tirado && !myRagController.isGettingUp && logicaPer.ragdollSuelo && refrescoCaido <= tiempo)
         {
             //toggleDead();
             //myRagController.ragdoll.RepairBones();

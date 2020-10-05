@@ -20,7 +20,7 @@ public class SpawnProyectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (controles.rTriggerFloat == 1 && Time.time >= refrescoDisparar && !miCon.logicaPer.tirado && miCon.logicaPer.armaDisparo)
+        if ((controles.rTriggerFloat == 1 || controles.lClick) && Time.time >= refrescoDisparar && !miCon.logicaPer.tirado && miCon.logicaPer.armaDisparo)
         {
             if (efectoSpawneado.GetComponent<movimientoProyectil>()!=null)
             {

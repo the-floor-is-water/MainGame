@@ -18,6 +18,7 @@ TagManager:
   - Jugador4
   - falling-tile
   - Tuneado
+  - Teclado
   layers:
   - Default
   - TransparentFX

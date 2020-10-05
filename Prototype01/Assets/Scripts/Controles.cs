@@ -21,6 +21,13 @@ public class Controles : MonoBehaviour
     public float moveVL;
     public float moveHR;
     public float moveVR;
+    //------------------------------------------------------------Controles teclado----------------------------------------------------------------------------------------------------------------
+    public bool teclado = false;
+    public bool num3;
+    public bool spacebar;
+    public bool lControl;
+    public bool lShift;
+    public bool lClick;
     public GameObject Contenedor;
     void Start()
     {
@@ -30,6 +37,18 @@ public class Controles : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Contenedor.tag == "Teclado")
+        {
+            moveHL = Input.GetAxis("HorizontalTeclado");
+            moveVL = Input.GetAxis("VerticalTeclado");
+            num3 = Input.GetKeyDown(KeyCode.Alpha3);
+            spacebar = Input.GetKeyDown(KeyCode.Space);
+            lControl = Input.GetKey(KeyCode.LeftControl);
+            lShift = Input.GetKey(KeyCode.LeftShift);
+            moveHR = Input.GetAxis("Mouse XTeclado");
+            moveVR = Input.GetAxis("Mouse YTeclado");
+            lClick = Input.GetMouseButton(0);
+        }
         if (Contenedor.tag == "Jugador1")
         {
             rTriggerFloat = Input.GetAxis("Right Trigger");

@@ -22,6 +22,22 @@ InputManager:
     axis: 0
     joyNum: 1
   - serializedVersion: 3
+    m_Name: HorizontalTeclado
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: left
+    positiveButton: right
+    altNegativeButton: a
+    altPositiveButton: d
+    gravity: 3
+    dead: 0.001
+    sensitivity: 3
+    snap: 1
+    invert: 0
+    type: 0
+    axis: 0
+    joyNum: 1
+  - serializedVersion: 3
     m_Name: Horizontal3
     descriptiveName: 
     descriptiveNegativeName: 
@@ -84,6 +100,22 @@ InputManager:
     invert: 0
     type: 2
     axis: 3
+    joyNum: 1
+  - serializedVersion: 3
+    m_Name: Mouse XTeclado
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 0
+    dead: 0.3
+    sensitivity: 0.1
+    snap: 0
+    invert: 0
+    type: 1
+    axis: 0
     joyNum: 1
   - serializedVersion: 3
     m_Name: Mouse X2
@@ -150,6 +182,22 @@ InputManager:
     axis: 4
     joyNum: 1
   - serializedVersion: 3
+    m_Name: Mouse YTeclado
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 0
+    dead: 0.3
+    sensitivity: 0.1
+    snap: 0
+    invert: 0
+    type: 1
+    axis: 1
+    joyNum: 1
+  - serializedVersion: 3
     m_Name: Mouse Y2
     descriptiveName: 
     descriptiveNegativeName: 
@@ -211,6 +259,22 @@ InputManager:
     snap: 0
     invert: 1
     type: 2
+    axis: 1
+    joyNum: 1
+  - serializedVersion: 3
+    m_Name: VerticalTeclado
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: down
+    positiveButton: up
+    altNegativeButton: w
+    altPositiveButton: s
+    gravity: 3
+    dead: 0.001
+    sensitivity: 3
+    snap: 0
+    invert: 1
+    type: 0
     axis: 1
     joyNum: 1
   - serializedVersion: 3

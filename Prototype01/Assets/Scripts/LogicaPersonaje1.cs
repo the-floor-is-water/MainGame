@@ -197,13 +197,16 @@ public class LogicaPersonaje1 : MonoBehaviour
             resetSalte = false;
             x = controles.moveHL;
             y = controles.moveVL;
-            if (x >= .5 || x <= -.5)
+            if (!controles.teclado)
             {
-                x = (float)Math.Round(x);
-            }
-            if ((x == 1 || x == -1) && (y >= .3 || y <= -.3))
-            {
-                y = (float)Math.Round(y);
+                if (x >= .5 || x <= -.5)
+                {
+                    x = (float)Math.Round(x);
+                }
+                if ((x == 1 || x == -1) && (y >= .3 || y <= -.3))
+                {
+                    y = (float)Math.Round(y);
+                }
             }
             anim.SetFloat("VelX", x);
             anim.SetFloat("VelY", y);
@@ -216,7 +219,7 @@ public class LogicaPersonaje1 : MonoBehaviour
             if (puedoSaltar)
             {
 
-                if (controles.aButton)
+                if (controles.aButton || controles.spacebar)
                 {
                     saltar();
                     resetSalte = true;
@@ -233,7 +236,7 @@ public class LogicaPersonaje1 : MonoBehaviour
             //Fin de metodo de saltar---------------------------------------------------------------------------------------------------------------------------------------
 
             //Metodo de agacharse---------------------------------------------------------------------------------------------------------------------------------------
-            if (controles.rightBumper && puedoSaltar)
+            if ((controles.rightBumper || controles.lControl) && puedoSaltar)
             {
                 agachado(true);
             }
@@ -245,7 +248,7 @@ public class LogicaPersonaje1 : MonoBehaviour
                 }
             }
             //Arma disparo---------------------------------------------------------------------------------------------------------------------------------------------------------
-            if (controles.dpadVertical == 1 && dPadLevantado)
+            if ((controles.dpadVertical == 1 && dPadLevantado) || controles.num3)
             {
                 dPadLevantado = false;
 
@@ -265,7 +268,7 @@ public class LogicaPersonaje1 : MonoBehaviour
             //Fin de metodo de agacharse---------------------------------------------------------------------------------------------------------------------------------------
 
             //Metodo de correr--------------------------------------------------------------------------------------------------------------------------------------------------
-            if (controles.leftBumper && (y == 1 || y == -1 || x == 1 || x == -1) && (refrescoCorrer <= tiempo) && puedoSaltar && puedoCorrer)
+            if ((controles.leftBumper || controles.lShift) && (y == 1 || y == -1 || x == 1 || x == -1) && (refrescoCorrer <= tiempo) && puedoSaltar && puedoCorrer)
             {
                 correr(true);
             }
