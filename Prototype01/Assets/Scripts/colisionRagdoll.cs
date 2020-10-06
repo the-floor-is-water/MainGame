@@ -36,7 +36,8 @@ public class colisionRagdoll : MonoBehaviour
                 miConexionComponentes.hips.GetComponent<Rigidbody>().AddForce(variable.normalized * bulletForce, ForceMode.VelocityChange);*/
                 PosicionD = other.transform.position;
                 var variable = transform.position - PosicionD;
-                miConexionComponentes.hips.GetComponent<Rigidbody>().AddForce(variable.normalized * (other.GetComponentInParent<movimientoProyectil>().bulletForce + 30), ForceMode.VelocityChange);
+                variable.y = 0;
+                miConexionComponentes.hips.GetComponent<Rigidbody>().AddForce((variable.normalized * (other.GetComponentInParent<movimientoProyectil>().bulletForce + 20)) + new Vector3(0, 10, 0), ForceMode.VelocityChange);
             }
             if (other.GetComponentInParent<movimientoProyectil2>() != null)
             {
@@ -47,7 +48,8 @@ public class colisionRagdoll : MonoBehaviour
                 miConexionComponentes.hips.GetComponent<Rigidbody>().AddForce(variable.normalized * bulletForce, ForceMode.VelocityChange);*/
                 PosicionD = other.transform.position;
                 var variable = transform.position - PosicionD;
-                miConexionComponentes.hips.GetComponent<Rigidbody>().AddForce(variable.normalized * (other.GetComponentInParent<movimientoProyectil2>().bulletForce+30), ForceMode.VelocityChange);
+                variable.y = 0;
+                miConexionComponentes.hips.GetComponent<Rigidbody>().AddForce((variable.normalized * (other.GetComponentInParent<movimientoProyectil2>().bulletForce + 20))+ new Vector3(0,10,0), ForceMode.VelocityChange);
             }
             if (other.GetComponentInParent<movimientoProyectil3>() != null)
             {

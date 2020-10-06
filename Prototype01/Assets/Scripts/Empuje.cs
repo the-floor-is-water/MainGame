@@ -6,6 +6,7 @@ public class Empuje : MonoBehaviour
 {
     // Start is called before the first frame update
     public LogicaPersonaje1 Personaje;
+    public Vector3 PosicionD;
     void Start()
     {
         
@@ -16,9 +17,25 @@ public class Empuje : MonoBehaviour
     {
         
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-       /* var variable = other.transform.position - transform.position;
-        Personaje.rb.AddForce((Personaje.rb.transform.forward*-1) * 20, ForceMode.VelocityChange);*/
+        if (Personaje.puedoSaltar)
+        {
+            Personaje.anim.SetBool("tocarSuelo", true);
+        }
+        PosicionD = other.transform.position;
+        var variable = PosicionD - transform.position;
+        variable.y = 0;
+        Personaje.puedoCorrer = false;
+        Personaje.puedoSaltarChoque = false;
+        Personaje.rb.AddForce(((variable.normalized * 2)*-1) + new  Vector3(0,-.2f,0), ForceMode.Impulse);
+
     }
+    private void OnTriggerExit(Collider other)
+    {
+        Personaje.puedoCorrer = true;
+        Personaje.puedoSaltarChoque = true;
+    }
+
+
 }

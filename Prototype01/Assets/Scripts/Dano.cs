@@ -48,7 +48,7 @@ public class Dano : MonoBehaviour
                 miConexionComponentes.hips.GetComponent<Rigidbody>().AddForce(variable.normalized * bulletForce, ForceMode.VelocityChange);*/
                 PosicionD = other.transform.position;
                 var variable = transform.position - PosicionD;
-                miConexionComponentes.hips.GetComponent<Rigidbody>().AddForce(variable.normalized * other.GetComponentInParent<movimientoProyectil>().bulletForce, ForceMode.VelocityChange);
+                miConexionComponentes.hips.GetComponent<Rigidbody>().AddForce((variable.normalized * other.GetComponentInParent<movimientoProyectil>().bulletForce) + new Vector3(0, 10, 0), ForceMode.VelocityChange);
             }
             if (other.GetComponentInParent<movimientoProyectil2>() != null)
             {
@@ -57,7 +57,7 @@ public class Dano : MonoBehaviour
                 miConexionComponentes.hips.GetComponent<Rigidbody>().AddForce(variable.normalized * bulletForce, ForceMode.VelocityChange);*/
                 PosicionD = other.transform.position;
                 var variable = transform.position - PosicionD;
-                miConexionComponentes.hips.GetComponent<Rigidbody>().AddForce(variable.normalized * other.GetComponentInParent<movimientoProyectil2>().bulletForce, ForceMode.VelocityChange);
+                miConexionComponentes.hips.GetComponent<Rigidbody>().AddForce((variable.normalized * other.GetComponentInParent<movimientoProyectil2>().bulletForce)+ new Vector3(0,10,0), ForceMode.VelocityChange);
             }
             if (other.GetComponentInParent<movimientoProyectil3>() != null)
             {

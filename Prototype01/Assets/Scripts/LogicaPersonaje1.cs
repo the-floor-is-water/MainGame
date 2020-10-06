@@ -19,6 +19,7 @@ public class LogicaPersonaje1 : MonoBehaviour
     public float fuerzaDeSalto = 14f;
     public bool puedoSaltar;
     public bool puedoCorrer;
+    public bool puedoSaltarChoque;
     public float fuerzaExtra = 0;
     public CapsuleCollider colParado;
     public CapsuleCollider colAgachado;
@@ -53,7 +54,8 @@ public class LogicaPersonaje1 : MonoBehaviour
         anim = GetComponent<Animator>();
         rb = this.GetComponent<Rigidbody>();
         puedoSaltar = false;
-        
+        puedoCorrer = true;
+        puedoSaltarChoque = true;
         velocidadInicial = velocidadMovimiento;
         velocidadAgachado = velocidadMovimiento * .5f;
         velocidadCorriendo = velocidadMovimiento + 2f;
@@ -65,7 +67,7 @@ public class LogicaPersonaje1 : MonoBehaviour
     {
         //----------------------------------------Empuje Parado-----------------------------------------------------------------------------------
         RaycastHit hit;
-        puedoCorrer = true;
+       
         Vector3 forward = transform.TransformDirection(Vector3.forward);
          Vector3 left = transform.TransformDirection(Vector3.left);
          Vector3 right = transform.TransformDirection(Vector3.right);
@@ -76,7 +78,7 @@ public class LogicaPersonaje1 : MonoBehaviour
          Debug.DrawRay(transform.position + new Vector3(0, 2.2f, 0), forward, Color.black);
          Debug.DrawRay(transform.position + new Vector3(0, 2.2f, 0), left, Color.black);
 
-         if (Physics.Raycast(transform.position + new Vector3(0, 1.1f, 0), forward, .4f) && !estoyAgachado)
+         /*if (Physics.Raycast(transform.position + new Vector3(0, 1.1f, 0), forward, .4f) && !estoyAgachado)
          {
 
              Debug.Log("Rayo colisiono");
@@ -135,8 +137,8 @@ public class LogicaPersonaje1 : MonoBehaviour
             Debug.Log("Rayo colisiono");
             rb.AddForce((transform.right) * 10, ForceMode.Impulse);
             puedoCorrer = false;
-        }
-
+        }*/
+         //comente hasta aqui --------------------------------------------------------------------------------------------------
         /* RaycastHit hit;
 
          Vector3 p1 = transform.position + new Vector3(0,1.8f,0);
@@ -216,9 +218,8 @@ public class LogicaPersonaje1 : MonoBehaviour
                 dPadLevantado = true;
             }
             //Metodo de saltar---------------------------------------------------------------------------------------------------------------------------------------
-            if (puedoSaltar)
+            if (puedoSaltar && puedoSaltarChoque)
             {
-
                 if (controles.aButton || controles.spacebar)
                 {
                     saltar();
@@ -226,11 +227,9 @@ public class LogicaPersonaje1 : MonoBehaviour
                 }
                 anim.SetBool("tocarSuelo", true);
             }
-            else
+            else if(!puedoSaltar)
             {
-
                 estoyCallendo();
-
 
             }
             //Fin de metodo de saltar---------------------------------------------------------------------------------------------------------------------------------------
