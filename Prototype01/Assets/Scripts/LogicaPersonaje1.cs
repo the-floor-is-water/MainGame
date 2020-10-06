@@ -31,6 +31,7 @@ public class LogicaPersonaje1 : MonoBehaviour
     public bool estoyCorriendo;
     public float refrescoCorrer = 0f;
     public float refrescoRevivir = 0f;
+    public float refrescoSaltar = 0f;
     public float refrescoAnim = 0f;
     //public float refrescoLevantarse = 0f;
     public float tiempo = 0f;
@@ -224,6 +225,7 @@ public class LogicaPersonaje1 : MonoBehaviour
                 {
                     saltar();
                     resetSalte = true;
+                 
                 }
                 anim.SetBool("tocarSuelo", true);
             }

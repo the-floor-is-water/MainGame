@@ -29,6 +29,7 @@ public class Dano : MonoBehaviour
    
     private void OnTriggerEnter(Collider other)
     {
+
         if (other.tag == "dano" && !logicaPer.tirado)
         {
             ragdoll.gameObject.SetActive(true);
