@@ -70,6 +70,54 @@ public class colisionRagdoll : MonoBehaviour
             }
         }
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag != "personaje")
+        {
+           
+            if (other.GetComponentInParent<movimientoProyectil>() != null)
+            {
+                miConexionComponentes.refrescoCaido = miConexionComponentes.tiempo + 3f;
+                /*miConexionComponentes.refrescoCaido = miConexionComponentes.tiempo + 3f;
+                PosicionD = other.GetComponentInParent<movimientoProyectil>().posicion;
+                var variable = PosicionD - transform.position;
+                miConexionComponentes.hips.GetComponent<Rigidbody>().AddForce(variable.normalized * bulletForce, ForceMode.VelocityChange);*/
+                PosicionD = other.transform.position;
+                var variable = transform.position - PosicionD;
+                variable.y = 0;
+                miConexionComponentes.hips.GetComponent<Rigidbody>().AddForce((variable.normalized * (other.GetComponentInParent<movimientoProyectil>().bulletForce + 20)) + new Vector3(0, 10, 0), ForceMode.VelocityChange);
+            }
+            if (other.GetComponentInParent<movimientoProyectil2>() != null)
+            {
+                miConexionComponentes.refrescoCaido = miConexionComponentes.tiempo + 3f;
+                /*miConexionComponentes.refrescoCaido = miConexionComponentes.tiempo + 3f;
+                PosicionD = other.GetComponentInParent<movimientoProyectil2>().posicion;
+                var variable = PosicionD - transform.position;
+                miConexionComponentes.hips.GetComponent<Rigidbody>().AddForce(variable.normalized * bulletForce, ForceMode.VelocityChange);*/
+                PosicionD = other.transform.position;
+                var variable = transform.position - PosicionD;
+                variable.y = 0;
+                miConexionComponentes.hips.GetComponent<Rigidbody>().AddForce((variable.normalized * (other.GetComponentInParent<movimientoProyectil2>().bulletForce + 20)) + new Vector3(0, 10, 0), ForceMode.VelocityChange);
+            }
+            if (other.GetComponentInParent<movimientoProyectil3>() != null)
+            {
+                miConexionComponentes.refrescoCaido = miConexionComponentes.tiempo + 3f;
+                PosicionD = other.GetComponentInParent<movimientoProyectil3>().posicion;
+                var variable = PosicionD - transform.position;
+                miConexionComponentes.hips.GetComponent<Rigidbody>().AddForce(variable.normalized * (other.GetComponentInParent<movimientoProyectil3>().bulletForce + 30), ForceMode.VelocityChange);
+                /*PosicionD = other.transform.position;
+                var variable = transform.position - PosicionD;
+                miConexionComponentes.hips.GetComponent<Rigidbody>().AddForce(variable.normalized * other.GetComponentInParent<movimientoProyectil3>().bulletForce, ForceMode.VelocityChange);*/
+
+            }
+            if (other.GetComponentInParent<Chaser>() != null)
+            {
+                PosicionD = other.transform.position;
+                var variable = transform.position - PosicionD;
+                miConexionComponentes.hips.GetComponent<Rigidbody>().AddForce((((variable.normalized * 3f)) + new Vector3(0, 5, 0)), ForceMode.VelocityChange);
+            }
+        }
+    }
     private void OnTriggerExit(Collider other)
     {
 

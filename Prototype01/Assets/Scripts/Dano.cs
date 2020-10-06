@@ -26,7 +26,8 @@ public class Dano : MonoBehaviour
     {
         
     }
-    private void OnTriggerStay(Collider other)
+   
+    private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "dano" && !logicaPer.tirado)
         {
@@ -41,7 +42,7 @@ public class Dano : MonoBehaviour
             logicaPer.rb.isKinematic = false;
             miConexionComponentes.refrescoCaido = miConexionComponentes.tiempo + 4f;
             miCabeza.contadorDeColision = 0;
-            if (other.GetComponentInParent<movimientoProyectil>()!=null)
+            if (other.GetComponentInParent<movimientoProyectil>() != null)
             {
                 /*PosicionD = other.GetComponentInParent<movimientoProyectil>().posicion;
                 var variable = PosicionD -transform.position;
@@ -57,7 +58,7 @@ public class Dano : MonoBehaviour
                 miConexionComponentes.hips.GetComponent<Rigidbody>().AddForce(variable.normalized * bulletForce, ForceMode.VelocityChange);*/
                 PosicionD = other.transform.position;
                 var variable = transform.position - PosicionD;
-                miConexionComponentes.hips.GetComponent<Rigidbody>().AddForce((variable.normalized * other.GetComponentInParent<movimientoProyectil2>().bulletForce)+ new Vector3(0,10,0), ForceMode.VelocityChange);
+                miConexionComponentes.hips.GetComponent<Rigidbody>().AddForce((variable.normalized * other.GetComponentInParent<movimientoProyectil2>().bulletForce) + new Vector3(0, 10, 0), ForceMode.VelocityChange);
             }
             if (other.GetComponentInParent<movimientoProyectil3>() != null)
             {
@@ -76,12 +77,6 @@ public class Dano : MonoBehaviour
             }
 
         }
-        Vector3 normal =logicaPer.rb.transform.up;
-        Vector3 vel = logicaPer.rb.velocity;
-        Angulo = Vector3.Angle(vel, -normal);
-        logicaPer.Angulo = Angulo;
-
-        
     }
     private void OnCollisionEnter(Collision collision)
     {
