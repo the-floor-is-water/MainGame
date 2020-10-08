@@ -14,6 +14,7 @@ public class punchBlocks : MonoBehaviour
     Vector3 initialPosition;
     bool goingForward = true;
     float tiempo = 0f;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +25,9 @@ public class punchBlocks : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
+        
+        
         float ms = movingSpeed * velocityAd;
         if (paused)
         {
@@ -57,17 +61,21 @@ public class punchBlocks : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        
+
         if (other.tag == "Player")
-            if (!other.GetComponentInParent<LogicaPersonaje1>().bEmpujado)
-            {
-                other.transform.parent.parent.parent = transform;
-            }
-        
+        {
+               
+                other.transform.parent.parent.parent = transform;        
+        }
+               
     }
     void OnTriggerExit(Collider other)
     {
         if (other.tag == "Player")
+        {
             other.transform.parent.parent.parent = null;
+           
+        }
+            
     }
 }

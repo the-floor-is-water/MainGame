@@ -58,11 +58,13 @@ public class CamaraControl : MonoBehaviour
     }
     public void Cam()
     {
+
         mouseX += rotSpeed * controles.moveHR;
         mouseY -= rotSpeed * controles.moveVR;
         mouseY = Mathf.Clamp(mouseY, rootMin, rootMax);
         target.rotation = Quaternion.Euler(mouseY, mouseX, 0f);
         player.rotation = Quaternion.Euler(0f, mouseX, 0f);
+          
 
     }
 }

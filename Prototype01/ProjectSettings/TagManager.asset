@@ -19,6 +19,7 @@ TagManager:
   - falling-tile
   - Tuneado
   - Teclado
+  - trampolin
   layers:
   - Default
   - TransparentFX

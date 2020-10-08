@@ -56,7 +56,7 @@ public class colisionRagdoll : MonoBehaviour
                 miConexionComponentes.refrescoCaido = miConexionComponentes.tiempo + 3f;
                 PosicionD = other.GetComponentInParent<movimientoProyectil3>().posicion;
                 var variable = PosicionD - transform.position;
-                miConexionComponentes.hips.GetComponent<Rigidbody>().AddForce(variable.normalized * (other.GetComponentInParent<movimientoProyectil3>().bulletForce + 30), ForceMode.VelocityChange);
+                miConexionComponentes.hips.GetComponent<Rigidbody>().AddForce(variable.normalized * (other.GetComponentInParent<movimientoProyectil3>().bulletForce + other.GetComponentInParent<movimientoProyectil3>().dBulletForce), ForceMode.VelocityChange);
                 /*PosicionD = other.transform.position;
                 var variable = transform.position - PosicionD;
                 miConexionComponentes.hips.GetComponent<Rigidbody>().AddForce(variable.normalized * other.GetComponentInParent<movimientoProyectil3>().bulletForce, ForceMode.VelocityChange);*/

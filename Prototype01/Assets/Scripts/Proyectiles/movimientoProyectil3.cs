@@ -18,6 +18,7 @@ public class movimientoProyectil3 : MonoBehaviour
     Vector3 experimento;
     Rigidbody rb;
     public float bulletForce;
+    public float dBulletForce=0;
     void Start()
     {
         tiempo = tiempo + 1 * Time.deltaTime;
@@ -38,8 +39,13 @@ public class movimientoProyectil3 : MonoBehaviour
         {
             transform.position += transform.forward * (velocidad * Time.deltaTime);
         }
-        if (tiempoVida < tiempo)
+        if (tiempo + .1f > tiempoVida)
         {
+            dBulletForce = 60;
+        }
+            if (tiempoVida < tiempo)
+        {
+           
             Destroy(gameObject);
         }
 

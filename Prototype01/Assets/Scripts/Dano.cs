@@ -79,9 +79,17 @@ public class Dano : MonoBehaviour
 
         }
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerStay(Collider other)
     {
-        
+        if (other.GetComponentInParent<movimientoProyectil3>() != null)
+        {
+            PosicionD = other.transform.position;
+            var variable = PosicionD - transform.position;
+            miConexionComponentes.hips.GetComponent<Rigidbody>().AddForce(variable.normalized * other.GetComponentInParent<movimientoProyectil3>().bulletForce, ForceMode.VelocityChange);
+            /*PosicionD = other.transform.position;
+            var variable = transform.position - PosicionD;
+            miConexionComponentes.hips.GetComponent<Rigidbody>().AddForce(variable.normalized * other.GetComponentInParent<movimientoProyectil3>().bulletForce, ForceMode.VelocityChange);*/
+        }
         /* measure angle
         if (Vector3.Angle(vel, -normal) > 20)
         {

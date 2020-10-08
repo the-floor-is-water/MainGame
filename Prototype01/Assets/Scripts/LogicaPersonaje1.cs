@@ -48,6 +48,8 @@ public class LogicaPersonaje1 : MonoBehaviour
     bool resetSalte = false;
     public Controles controles;
     public bool bEmpujado = false;
+    public CamaraControl cCamara;
+    public bool Plataforma = false;
     // Start is called before the first frame update
 
 
@@ -219,8 +221,9 @@ public class LogicaPersonaje1 : MonoBehaviour
             {
                 dPadLevantado = true;
             }
-            //Metodo de saltar---------------------------------------------------------------------------------------------------------------------------------------
-            if (puedoSaltar && puedoSaltarChoque)
+           
+                //Metodo de saltar---------------------------------------------------------------------------------------------------------------------------------------
+                if (puedoSaltar && puedoSaltarChoque)
             {
                 if (controles.aButton || controles.spacebar)
                 {
@@ -290,7 +293,17 @@ public class LogicaPersonaje1 : MonoBehaviour
         //Move();
         //transform.Rotate(0, x * Time.deltaTime * velocidadRotacion,0);
         //transform.Translate(x * Time.deltaTime * velocidadMovimiento, 0, 0);
-        transform.Translate(x * Time.deltaTime * velocidadMovimiento, 0, y * Time.deltaTime * velocidadMovimiento);
+        //
+        if (bEmpujado)
+        {
+            transform.Translate(x * Time.deltaTime * velocidadMovimiento*-1, 0, y * Time.deltaTime * velocidadMovimiento*-1);
+        }
+        else
+        {
+            transform.Translate(x * Time.deltaTime * velocidadMovimiento, 0, y * Time.deltaTime * velocidadMovimiento);
+        }
+        //rb.velocity = transform.TransformDirection(x * velocidadMovimiento, rb.velocity.y, y * velocidadMovimiento);
+
         //Move();
 
     }
