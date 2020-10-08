@@ -7,6 +7,6 @@ public class onClickStart : MonoBehaviour
    public void Onclickinicio()
    {
        //Debug.Log("Entro");
-       Loader.loadScene("SampleScene");
+       Loader.loadScene("juego");
    }
 }
