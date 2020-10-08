@@ -57,8 +57,13 @@ public class punchBlocks : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        
         if (other.tag == "Player")
-            other.transform.parent.parent.parent = transform;
+            if (!other.GetComponentInParent<LogicaPersonaje1>().bEmpujado)
+            {
+                other.transform.parent.parent.parent = transform;
+            }
+        
     }
     void OnTriggerExit(Collider other)
     {

@@ -47,6 +47,7 @@ public class LogicaPersonaje1 : MonoBehaviour
     int dpad = 0;
     bool resetSalte = false;
     public Controles controles;
+    public bool bEmpujado = false;
     // Start is called before the first frame update
 
 

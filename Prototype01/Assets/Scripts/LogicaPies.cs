@@ -40,13 +40,18 @@ public class LogicaPies : MonoBehaviour
             Debug.Log(Vector3.Angle(Vector3.up, hit.normal));
             if (colina)
             {
-                int fuerza=2;
+                float fuerza=2;
                 if (Vector3.Angle(Vector3.up, hit.normal) >= 60)
                 {
-                    fuerza = 4;
+                    fuerza = 2.5f;
                     logicaPersonaje.puedoSaltar = false;
+                    logicaPersonaje.anim.SetBool("Slope", true);
                 }
-                logicaPersonaje.rb.AddForce(new Vector3(((1f-hit.normal.y)*hit.normal.x )*3, -.3f,(1f - hit.normal.y) * hit.normal.z) * fuerza, ForceMode.VelocityChange);
+                if (Vector3.Angle(Vector3.up, hit.normal) < 60)
+                {
+                    logicaPersonaje.anim.SetBool("Slope", false);
+                }
+                logicaPersonaje.rb.AddForce(new Vector3(((1f-hit.normal.y)*hit.normal.x )*fuerza, -.3f,(1f - hit.normal.y) * hit.normal.z) * fuerza, ForceMode.VelocityChange);
             }
         }
       /*  if (Angulo>100)
@@ -72,7 +77,8 @@ public class LogicaPies : MonoBehaviour
    
     private void OnTriggerExit(Collider other) {
          logicaPersonaje.puedoSaltar=false;
-       
+        logicaPersonaje.anim.SetBool("Slope", false);
+
     }
     
 }
