@@ -42,7 +42,7 @@ public class LogicaPies : MonoBehaviour
         RaycastHit hit;
         Ray ray = new Ray(transform.position,transform.up*-1);
 
-        if (Physics.Raycast(ray, out hit))
+       if (Physics.Raycast(ray, out hit))
         {
             //Debug.Log(hit.normal);
             colina = Vector3.Angle(Vector3.up, hit.normal) >= 30;
@@ -52,14 +52,14 @@ public class LogicaPies : MonoBehaviour
             {
                 Angulo = Vector3.Angle(Vector3.up, hit.normal);
                 float fuerza=2;
-                if (Vector3.Angle(Vector3.up, hit.normal) >= 60)
+                if (Vector3.Angle(Vector3.up, hit.normal) >= 50)
                 {
                     fuerza = 2.5f;
                     logicaPersonaje.puedoSaltar = false;
                     logicaPersonaje.anim.SetBool("Slope", true);
                     logicaPersonaje.velocidadMovimiento = vSlope;
                 }
-                if (Vector3.Angle(Vector3.up, hit.normal) < 60)
+                if (Vector3.Angle(Vector3.up, hit.normal) < 50)
                 {
                     logicaPersonaje.velocidadMovimiento = vInicial;
                     logicaPersonaje.anim.SetBool("Slope", false);

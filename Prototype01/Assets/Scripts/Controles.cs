@@ -58,7 +58,7 @@ public class Controles : MonoBehaviour
             backButton = Input.GetButton("Back");
             startButton = Input.GetButton("Start");
             aButton = Input.GetButtonDown("A Button");
-            bButton = Input.GetButton("B Button");
+            bButton = Input.GetButtonDown("B Button");
             xButton = Input.GetButton("X Button");
             yButton = Input.GetButton("Y Button");
             dpadHorizontal = Input.GetAxis("Dpad Horizontal");

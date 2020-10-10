@@ -3,6 +3,7 @@ using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Resources;
 using TMPro;
 using UnityEngine;
 
@@ -38,6 +39,7 @@ public class LogicaPersonaje1 : MonoBehaviour
     public GameObject referencia;
     Vector3 rotationInput = Vector3.zero;
     public bool puedoMoverme = true;
+    public bool puedoMovermeGolpe = true;
     public bool tirado = false;
     public bool ragdollSuelo = false;
     public RagdollController myRagController;
@@ -50,16 +52,25 @@ public class LogicaPersonaje1 : MonoBehaviour
     public bool bEmpujado = false;
     public CamaraControl cCamara;
     public bool Plataforma = false;
+    Quaternion rotacion;
+    public int cGolpe=0;
+    public bool tGolpe;
+    public bool cicloGolpe = false;
+    public float tiempoGolpe = 0;
+    public GameObject Eagle;
     // Start is called before the first frame update
 
 
     void Start()
     {
+        rotacion = rb.transform.localRotation;
         anim = GetComponent<Animator>();
         rb = this.GetComponent<Rigidbody>();
         puedoSaltar = false;
         puedoCorrer = true;
         puedoSaltarChoque = true;
+        tGolpe = true;
+        puedoMovermeGolpe = true;
         velocidadInicial = velocidadMovimiento;
         velocidadAgachado = velocidadMovimiento * .5f;
         velocidadCorriendo = velocidadMovimiento + 2f;
@@ -197,7 +208,7 @@ public class LogicaPersonaje1 : MonoBehaviour
         }*/
         //Look();
 
-        if (puedoMoverme)
+        if (puedoMoverme && puedoMovermeGolpe)
         {
 
             resetSalte = false;
@@ -283,6 +294,12 @@ public class LogicaPersonaje1 : MonoBehaviour
             }
             //Fin de metodo correr---------------------------------------------------------------------------------------------------------------------------------------
         }
+        //Metodo golpear---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        if (controles.bButton )
+        {
+            cicloGolpe = true;
+           
+        }
 
     }
     void FixedUpdate()
@@ -303,7 +320,24 @@ public class LogicaPersonaje1 : MonoBehaviour
             transform.Translate(x * Time.deltaTime * velocidadMovimiento, 0, y * Time.deltaTime * velocidadMovimiento);
         }
         //rb.velocity = transform.TransformDirection(x * velocidadMovimiento, rb.velocity.y, y * velocidadMovimiento);
+        if (cicloGolpe)
+        {
+            puedoMovermeGolpe = false;
+            if (cGolpe == 0)
+            {
+                anim.SetBool("EaglePunch", true);
+                Eagle.SetActive(true);
+                cGolpe = 50;
+                tGolpe = false;
+                
+            }
+            Golpe();
+            if (cGolpe != 0)
+            {
+                cGolpe--;
+            }
 
+        }
         //Move();
 
     }
@@ -381,6 +415,34 @@ public class LogicaPersonaje1 : MonoBehaviour
     {
         return tiempo + tiempoe;
     }
+    public void Golpe()
+    {
+        Debug.Log("Estoy golpeando ppro");
+        Vector3 adelante = rb.transform.forward;
+        adelante.y = 0;
+        rb.AddForce(rb.transform.forward * (800 * Time.deltaTime), ForceMode.VelocityChange);
+        if (cGolpe==1)
+        {
+            tGolpe = true;
+            cGolpe = 0;
+            puedoMovermeGolpe = true;
+            Eagle.SetActive(false);
+            cicloGolpe = false;
+            anim.SetBool("EaglePunch", false);
+        }
+        //float ultima = tiempo + .4f;
+        /*for (int i = 0; i < 200; i++)
+        {
+            if (tiempo<ultima)
+            {
+                rb.AddForce(rb.transform.forward * (20 * Time.deltaTime), ForceMode.VelocityChange);
+            }
+            ultima = tiempo + 2f;
+        }*/
+
+    }
+        
+       
     public void Move()
     {
         Vector3 movement = new Vector3(x, 0, y) * velocidadMovimiento * Time.deltaTime;

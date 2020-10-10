@@ -56,8 +56,25 @@ public class Empuje : MonoBehaviour
         {
             Personaje.rb.AddForce(((variable.normalized * 24)) + new Vector3(0, fuerzaY, 0), ForceMode.VelocityChange);
         }
+        if (other.tag!="personaje" && other.GetComponentInParent<movimientoProyectil2>() != null && other.GetComponentInParent<movimientoProyectil>() != null)
+        {
+            Personaje.cicloGolpe = false;
+            Personaje.tGolpe = true;
+            Personaje.cGolpe = 0;
+            Personaje.puedoMovermeGolpe = true;
+            Personaje.anim.SetBool("EaglePunch", false);
+        }
        
-       
+        /* Personaje.puedoCorrer = false;
+         Personaje.puedoSaltarChoque = false;
+         Collider[] hitColliders = Physics.OverlapSphere(transform.position, 90);
+         foreach (var hitCollider in hitColliders)
+         {
+             float fuerza = 3;
+             Personaje.rb.AddForce(hitCollider.transform.forward*-1/7, ForceMode.VelocityChange);
+         }*/
+
+
 
     }
     private void OnTriggerEnter(Collider other)

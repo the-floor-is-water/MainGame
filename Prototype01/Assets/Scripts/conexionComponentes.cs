@@ -133,6 +133,10 @@ public class conexionComponentes : MonoBehaviour
             logicaPer.Move();
             logicaPer.puedoMoverme = false;
             logicaPer.anim.SetBool("tocarSuelo", true);
+            logicaPer.tGolpe = true;
+            logicaPer.cGolpe = 0;
+            logicaPer.puedoMovermeGolpe = true;
+            logicaPer.anim.SetBool("EaglePunch", false);
             //logicaPer.refrescoLevantarse = logicaPer.setCooldown(2.5f);
         }
     }
