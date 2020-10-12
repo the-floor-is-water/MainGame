@@ -10,6 +10,8 @@ TagManager:
   - Efectos
   - Arma
   - Arma_especial
+  - jugador
+  - Musica
   layers:
   - Default
   - TransparentFX

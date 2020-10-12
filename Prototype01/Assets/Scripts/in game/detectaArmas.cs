@@ -21,25 +21,33 @@ public class detectaArmas: MonoBehaviour{
 
     void OnCollisionStay(Collision other) {
     
-        if(this.gameObject.tag == "Arma")
+        Debug.Log("Colision!");
+        if(other.gameObject.tag == "Player")
         {
-            if(this.slot2.estaVacio() && !this.slot.estaVacio())
+            if(this.gameObject.tag == "Arma")
             {
-                if(!this.slot.getNombre().Equals(this.gameObject.name))
+                Debug.Log("tag del arma es: "+ this.gameObject.tag + ". Tag del Player es: "+ other.gameObject.tag );
+                if(this.slot2.estaVacio() && !this.slot.estaVacio())
                 {
-                    this.slot2.setItem(this.slot);
+                    if(!this.slot.getNombre().Equals(this.gameObject.name))
+                    {
+                        Debug.Log("arma 1 guardada en el slot 2 y arma nueva colocada en slot 1");
+                        this.slot2.setItem(this.slot);
+                        this.slot.setItem(this.gameObject, this.arma);
+                    }
+                }
+                else if(this.slot2.estaVacio() && this.slot.estaVacio())
+                {
+                    Debug.Log("arma nueva colocada en el slot 1");
                     this.slot.setItem(this.gameObject, this.arma);
                 }
             }
-            else if(this.slot2.estaVacio() && this.slot.estaVacio())
-            {
-                this.slot.setItem(this.gameObject, this.arma);
-            }
-        }
 
-        if(this.gameObject.tag == "Arma_especial")
-        {
-            this.slot3.setItem(this.gameObject, this.arma);
+            if(this.gameObject.tag == "Arma_especial")
+            {
+                Debug.Log("Arma especial guardada en el slot 3");
+                this.slot3.setItem(this.gameObject, this.arma);
+            }
         }
 
     }
