@@ -58,6 +58,10 @@ public class LogicaPersonaje1 : MonoBehaviour
     public bool cicloGolpe = false;
     public float tiempoGolpe = 0;
     public GameObject Eagle;
+    public GameObject Pistola;
+    public GameObject proyectilSpawn;
+    public GameObject PistolaRag;
+    public GameObject Spine;
     // Start is called before the first frame update
 
 
@@ -75,23 +79,26 @@ public class LogicaPersonaje1 : MonoBehaviour
         velocidadAgachado = velocidadMovimiento * .5f;
         velocidadCorriendo = velocidadMovimiento + 2f;
         danoAgachado.enabled = false;
+        proyectilSpawn.transform.localScale = new Vector3(0, 0, 0);
+        Pistola.transform.localScale = new Vector3(0, 0, 0);
+        PistolaRag.transform.localScale = new Vector3(0, 0, 0);
     }
 
     // Update is called once per frame
     void Update()
     {
         //----------------------------------------Empuje Parado-----------------------------------------------------------------------------------
-        RaycastHit hit;
+        //RaycastHit hit;
        
-        Vector3 forward = transform.TransformDirection(Vector3.forward);
+        /*Vector3 forward = transform.TransformDirection(Vector3.forward);
          Vector3 left = transform.TransformDirection(Vector3.left);
-         Vector3 right = transform.TransformDirection(Vector3.right);
+         Vector3 right = transform.TransformDirection(Vector3.right);*/
         //Ray ray = new Ray(transform.position + new Vector3(0,1.1f,0), forward);
-        Ray ray = new Ray(transform.position + new Vector3(0, .3f, 0), forward);
+        /*Ray ray = new Ray(transform.position + new Vector3(0, .3f, 0), forward);
          Debug.DrawRay(transform.position + new Vector3(0, .5f, 0), forward, Color.blue);
          Debug.DrawRay(transform.position + new Vector3(0, 1.1f, 0), forward, Color.green);
          Debug.DrawRay(transform.position + new Vector3(0, 2.2f, 0), forward, Color.black);
-         Debug.DrawRay(transform.position + new Vector3(0, 2.2f, 0), left, Color.black);
+         Debug.DrawRay(transform.position + new Vector3(0, 2.2f, 0), left, Color.black);*/
 
          /*if (Physics.Raycast(transform.position + new Vector3(0, 1.1f, 0), forward, .4f) && !estoyAgachado)
          {
@@ -272,11 +279,14 @@ public class LogicaPersonaje1 : MonoBehaviour
                 {
                     anim.SetBool("armaDisparo", true);
                     armaDisparo = true;
+                    Pistola.transform.localScale = new Vector3(1, 1, 1);
+
                 }
                 else
                 {
                     anim.SetBool("armaDisparo", false);
                     armaDisparo = false;
+                    Pistola.transform.localScale = new Vector3(0, 0, 0);
                 }
 
             }
@@ -285,8 +295,9 @@ public class LogicaPersonaje1 : MonoBehaviour
 
             //Metodo de correr--------------------------------------------------------------------------------------------------------------------------------------------------
             if ((controles.leftBumper || controles.lShift) && (y == 1 || y == -1 || x == 1 || x == -1) && (refrescoCorrer <= tiempo) && puedoSaltar && puedoCorrer)
-            {
+            {  
                 correr(true);
+
             }
             else if (estoyCorriendo)
             {

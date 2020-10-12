@@ -77,7 +77,7 @@ public class Controles : MonoBehaviour
             backButton = Input.GetButton("Back2");
             startButton = Input.GetButton("Start2");
             aButton = Input.GetButtonDown("A Button2");
-            bButton = Input.GetButton("B Button2");
+            bButton = Input.GetButtonDown("B Button2");
             xButton = Input.GetButton("X Button2");
             yButton = Input.GetButton("Y Button2");
             dpadHorizontal = Input.GetAxis("Dpad Horizontal2");
@@ -96,7 +96,7 @@ public class Controles : MonoBehaviour
             backButton = Input.GetButton("Back3");
             startButton = Input.GetButton("Start3");
             aButton = Input.GetButtonDown("A Button3");
-            bButton = Input.GetButton("B Button3");
+            bButton = Input.GetButtonDown("B Button3");
             xButton = Input.GetButton("X Button3");
             yButton = Input.GetButton("Y Button3");
             dpadHorizontal = Input.GetAxis("Dpad Horizontal3");
@@ -115,7 +115,7 @@ public class Controles : MonoBehaviour
             backButton = Input.GetButton("Back4");
             startButton = Input.GetButton("Start4");
             aButton = Input.GetButtonDown("A Button4");
-            bButton = Input.GetButton("B Button4");
+            bButton = Input.GetButtonDown("B Button4");
             xButton = Input.GetButton("X Button4");
             yButton = Input.GetButton("Y Button4");
             dpadHorizontal = Input.GetAxis("Dpad Horizontal4");

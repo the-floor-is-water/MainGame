@@ -8,11 +8,16 @@ public class CamaraControl : MonoBehaviour
     public Transform posTP;
     public Transform posPP;
     public float rotSpeed;
+    public float rotSpine = 0;
     public float rootMin, rootMax;
-    float mouseX, mouseY;
+    public float mouseX, mouseY;
     public Transform target, player;
     public Controles controles;
     public LogicaPersonaje1 personaje;
+    public GameObject Head;
+    public GameObject Spine;
+    public bool resetRot = false;
+    public bool aux = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -65,6 +70,54 @@ public class CamaraControl : MonoBehaviour
             mouseY = Mathf.Clamp(mouseY, rootMin, rootMax);
             target.rotation = Quaternion.Euler(mouseY, mouseX, 0f);
             player.rotation = Quaternion.Euler(0f, mouseX, 0f);
+            if (!personaje.armaDisparo)
+            {
+                Head.transform.localRotation = Quaternion.Euler(mouseY, 0, 0);
+            }
+            rotSpine += rotSpeed * controles.moveHR;
+            if (personaje.x==0 && personaje.y==0)
+            {
+                resetRot = false;
+                aux = true;
+            }
+            else
+            {
+                resetRot = true;
+            }
+            if (resetRot && aux)
+            {
+                rotSpine = 0;
+                aux = false;
+            }
+            if (!personaje.armaDisparo)
+            {
+                if (rotSpine > 30 || rotSpine < -30)
+                {
+                    if (rotSpine > 30)
+                    {
+                        rotSpine = 30;
+                    }
+                    if (rotSpine < -30)
+                    {
+                        rotSpine = -30;
+                    }
+                }
+                if (personaje.estoyCorriendo || personaje.estoyAgachado)
+                {
+                    Spine.transform.localRotation = Quaternion.Euler(35, rotSpine, 0);
+                }
+                else
+                {
+                   
+                    Spine.transform.localRotation = Quaternion.Euler(0, rotSpine, 0);
+                }    
+            }
+            
+
+
+
+
+
         }
         
           
