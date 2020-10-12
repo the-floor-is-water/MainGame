@@ -23,11 +23,19 @@ public class seasick : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
+        {
             other.transform.parent.parent.parent = transform;
+        }
+            
+           
     }
     void OnTriggerExit(Collider other)
     {
         if (other.tag == "Player")
+        {
             other.transform.parent.parent.parent = null;
+        }
+            
+       
     }
 }

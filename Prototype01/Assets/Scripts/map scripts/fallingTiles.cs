@@ -8,7 +8,7 @@ public class fallingTiles : MonoBehaviour
     public float time2fall = 1f;
 
     float tiempo = 0f;
-    bool playerEntered = false;
+    public bool playerEntered = false;
     bool tileFalling = false;
     bool restartingPositon = false;
     Vector3 initialPosition;
@@ -66,7 +66,7 @@ public class fallingTiles : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player" || other.tag == "personaje" || other.tag == "heavytrow")
+        if (other.tag == "Player" || other.tag == "personaje" || other.tag == "heavytrow" || other.tag == "dano")
             playerEntered = true;
     }
     void OnTriggerExit(Collider other)
