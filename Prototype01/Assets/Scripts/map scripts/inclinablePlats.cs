@@ -10,11 +10,13 @@ public class inclinablePlats : MonoBehaviour
     public GameObject left;
     public GameObject right;
 
-    float totalInclination = 0f;
     bool playerOn = false;
     float distanceBtw; 
     float distanceL;
     float distanceR;
+    int numPlayers = 0;
+    List<Collider> colliders = new List<Collider>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,30 +27,52 @@ public class inclinablePlats : MonoBehaviour
     void Update()
     {
         
-        if(playerOn && transform.rotation.x < limitInclination)
+        if(playerOn)
         {
             transform.Rotate(-distanceBtw * constInclination * Time.deltaTime, 0, 0);
-            totalInclination += -distanceBtw * constInclination * Time.deltaTime;
         }
     }
 
-    /*void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
+            numPlayers++;
+            if (!colliders.Contains(other))
+                colliders.Add(other);
         }
-    }*/
+    }
     void OnTriggerStay(Collider other)
     {
+        float auxDs = 0f;
+        float auxL;
+        float auxR;
         if (other.tag == "Player")
         {
             other.transform.parent.parent.parent = transform;
             playerOn = true;
-            distanceBtw = Vector3.Distance(center.transform.position, other.transform.position);
-            distanceL = Vector3.Distance(left.transform.position, other.transform.position);
-            distanceR = Vector3.Distance(right.transform.position, other.transform.position);
-            if (distanceL < distanceR)
-                distanceBtw = -distanceBtw;
+            if(numPlayers < 2)
+            {
+                distanceBtw = Vector3.Distance(center.transform.position, other.transform.position);
+                distanceL = Vector3.Distance(left.transform.position, other.transform.position);
+                distanceR = Vector3.Distance(right.transform.position, other.transform.position);
+                if (distanceL < distanceR)
+                    distanceBtw = -distanceBtw;
+            }
+            else
+            {
+                for(int i = 0; i < numPlayers; i++)
+                {
+                    auxL = Vector3.Distance(left.transform.position, colliders[i].transform.position);
+                    auxR = Vector3.Distance(right.transform.position, colliders[i].transform.position);
+                    if (auxL < auxR)
+                        auxDs -= Vector3.Distance(center.transform.position, colliders[i].transform.position);
+                    else
+                        auxDs += Vector3.Distance(center.transform.position, colliders[i].transform.position);
+                }
+                distanceBtw = auxDs;
+            }
+            Debug.Log(distanceBtw);
         }
     }
     void OnTriggerExit(Collider other)
@@ -57,6 +81,8 @@ public class inclinablePlats : MonoBehaviour
         {
             other.transform.parent.parent.parent = null;
             playerOn = false;
+            numPlayers--;
+            colliders.Remove(other);
         }
     }
 }
