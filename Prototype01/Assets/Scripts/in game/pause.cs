@@ -69,6 +69,8 @@ Right Trigger Shared Axis       3rd Axis                                    0 to
     void Start(){
 
         this.sources = GameObject.FindSceneObjectsOfType(typeof(AudioSource)) as AudioSource[];
+        this.volMusicaBar.value = Config.configuraciones.volumenMusica;
+        this.volEfectosBar.value = Config.configuraciones.volumenefectos;
 
     }
 

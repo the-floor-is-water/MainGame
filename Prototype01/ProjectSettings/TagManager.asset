@@ -21,6 +21,8 @@ TagManager:
   - Teclado
   - trampolin
   - EaglePucnch
+  - jugador
+  - Musica
   layers:
   - Default
   - TransparentFX
@@ -34,7 +36,7 @@ TagManager:
   - Ground
   - Player
   - magicCylinders
-  - Proyectil
+  - 
   - 
   - 
   - 
