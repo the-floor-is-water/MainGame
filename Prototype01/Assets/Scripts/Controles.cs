@@ -4,30 +4,87 @@ using UnityEngine;
 
 public class Controles : MonoBehaviour
 {
+    /*
+     Consideraciones de uso de controles
+    Los controles que tienen down son un click es decir hace la accion una vez
+    Los controles que no tienen down, son acciones que se quedan haciendo
+
+    Uso de Dpad-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    Si el valor de dpadVertical es 1 significa que el Dpad fue presionado en la cruceta de arriba y si su valor es -1 fue presionado en la cruceta de abajo
+    Para evitar problemas con el Dpad recomiendo usar:
+    Una variable  auxiliar para que solo se haga una pulsacion
+    bool  dPadLevantado = true;
+    Condicion para resetear la variable auxiliar
+    if (controles.dpadVertical == 0 && controles.dpadHorizontal == 0)
+            {
+                dPadLevantado = true;
+            }
+    Pulsacion de cruceta en vertical arriba
+     if (controles.dpadVertical == 1 && dPadLevantado)
+            {
+                dPadLevantado = false;
+            }
+     Pulsacion de cruceta en vertical abajo
+     if (controles.dpadVertical == -1 && dPadLevantado)
+            {
+                dPadLevantado = false;
+            }
+
+
+    Para cualquier otro boton ---------------------------------------------------------------------------------------------------------------------------------------------------------------
+    if (controles.aButton || controles.spacebar)
+                {
+                    //metodo a ejecutar
+                 
+                }
+     */
     // Start is called before the first frame update
+    // Gatillo derecho inferior
     public float rTriggerFloat;
+    // Gatillo izquierdo inferior
     public float lTriggerFloat;
+    // Gatillo izquiero superior
     public bool leftBumper;
+    // Gatillo derecho superior
     public bool rightBumper;
+    // Boton que esta a la izquierda de pausa
     public bool backButton;
+    // Boton de pausa
     public bool startButton;
+    // Boton A
     public bool aButton;
+    // Boton B
     public bool bButton;
+    // Boton X
     public bool xButton;
+    // Boton Y
     public bool yButton;
+    // Dpad/Cruceta en axis horizontal
     public float dpadHorizontal;
+    // Dpad/Cruceta en axis vertical
     public float dpadVertical;
+    // Joystick izquierdo horizontal horizontal
     public float moveHL;
+    // Joystick izquiedo axis vertical
     public float moveVL;
+    // Joystick derecho axis horizontal
     public float moveHR;
+    // Joystick derecho axis vertical
     public float moveVR;
     //------------------------------------------------------------Controles teclado----------------------------------------------------------------------------------------------------------------
+    //Variable auxiliar para el movimiento del personaje en teclado, no le muevas a esta 
     public bool teclado = false;
+    //Tecla  numerica 3
     public bool num3;
+    //Barra espaciadora
     public bool spacebar;
+    //Tecla control izquiedo
     public bool lControl;
+    //Tecla de shift izquierdo
     public bool lShift;
+    //Click izquierdo
     public bool lClick;
+    //Referencia al jugador n
     public GameObject Contenedor;
     void Start()
     {

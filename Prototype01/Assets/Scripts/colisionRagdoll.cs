@@ -26,6 +26,10 @@ public class colisionRagdoll : MonoBehaviour
     {
         if (other.tag!= "personaje")
         {
+            if (other.gameObject.layer == 4)
+            {
+                transform.parent.parent.gameObject.SetActive(false);
+            }
             logicaPersonaje.ragdollSuelo = true;
             if (other.GetComponentInParent<movimientoProyectil>() != null)
             {

@@ -26,6 +26,7 @@ public class Config : MonoBehaviour
 
     private AudioSource[] sources;
 
+
     void Awake ()
     {
         if(configuraciones == null) {

@@ -66,6 +66,10 @@ public class Dano : MonoBehaviour
                 }
                 if (other.GetComponentInParent<movimientoProyectil3>() != null)
                 {
+                    logicaPer.cicloGolpe = false;
+                    logicaPer.tGolpe = true;
+                    logicaPer.cGolpe = 0;
+                    logicaPer.anim.SetBool("EaglePunch", false);
                     PosicionD = other.transform.position;
                     var variable = PosicionD - transform.position;
                     miConexionComponentes.hips.GetComponent<Rigidbody>().AddForce(variable.normalized * other.GetComponentInParent<movimientoProyectil3>().bulletForce, ForceMode.VelocityChange);
@@ -75,13 +79,20 @@ public class Dano : MonoBehaviour
                 }
                 if (other.GetComponentInParent<Chaser>() != null)
                 {
+                    logicaPer.cicloGolpe = false;
+                    logicaPer.tGolpe = true;
+                    logicaPer.cGolpe = 0;
+                    logicaPer.anim.SetBool("EaglePunch", false);
                     PosicionD = other.transform.position;
                     var variable = transform.position - PosicionD;
                     miConexionComponentes.hips.GetComponent<Rigidbody>().AddForce((((variable.normalized * 3f)) + new Vector3(0, 5, 0)), ForceMode.VelocityChange);
                 }
                 if (other.GetComponentInParent<EaglePunch>() != null)
                 {
-                    Debug.Log("Eagle pucnh");
+                    logicaPer.cicloGolpe = false;
+                    logicaPer.tGolpe = true;
+                    logicaPer.cGolpe = 0;
+                    logicaPer.anim.SetBool("EaglePunch", false);
                     PosicionD = other.transform.position;
                     var variable = transform.position - PosicionD;
                     variable.y = 0;
