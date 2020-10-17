@@ -20,7 +20,7 @@ public class MatarJugador : MonoBehaviour
         if (other.transform.parent != null)
         {
           
-            Debug.Log(other.transform.parent.name);
+            //Debug.Log(other.transform.parent.name);
             //Desaparicion de jugadores
             if (other.transform.parent.tag == "Jugador1")
             {
@@ -53,7 +53,7 @@ public class MatarJugador : MonoBehaviour
         if (other.transform.parent != null)
         {
             
-            Debug.Log(other.transform.parent.name);
+            //Debug.Log(other.transform.parent.name);
             //Desaparicion de jugadores
             if (other.transform.parent.tag == "Jugador1")
             {

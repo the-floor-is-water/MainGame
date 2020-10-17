@@ -84,6 +84,14 @@ public class Controles : MonoBehaviour
     public bool lShift;
     //Click izquierdo
     public bool lClick;
+    //Tecla Q
+    public bool Qkey;
+    //Tecla E
+    public bool Ekey;
+    //Tecla F
+    public bool Fkey;
+    //Tabulador
+    public bool Tab;
     //Referencia al jugador n
     public GameObject Contenedor;
     void Start()
@@ -105,6 +113,11 @@ public class Controles : MonoBehaviour
             moveHR = Input.GetAxis("Mouse XTeclado");
             moveVR = Input.GetAxis("Mouse YTeclado");
             lClick = Input.GetMouseButton(0);
+            Qkey = Input.GetKeyDown(KeyCode.Q);
+            Ekey = Input.GetKeyDown(KeyCode.E);
+            Fkey = Input.GetKeyDown(KeyCode.F);
+            Tab = Input.GetKeyDown(KeyCode.Tab);
+
         }
         if (Contenedor.tag == "Jugador1")
         {

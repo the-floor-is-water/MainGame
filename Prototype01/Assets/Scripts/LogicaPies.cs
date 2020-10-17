@@ -27,7 +27,7 @@ public class LogicaPies : MonoBehaviour
         // Cast a ray straight downwards.
         if (Physics.Raycast(downRay, out hit))
         {
-            //Debug.Log("La distancia es " + hit.distance);
+            ////Debug.Log("La distancia es " + hit.distance);
         }
 }
     private void OnTriggerStay(Collider other) {
@@ -44,10 +44,10 @@ public class LogicaPies : MonoBehaviour
 
        if (Physics.Raycast(ray, out hit))
         {
-            //Debug.Log(hit.normal);
+            ////Debug.Log(hit.normal);
             colina = Vector3.Angle(Vector3.up, hit.normal) >= 30;
-            Debug.Log(colina);
-            Debug.Log(Vector3.Angle(Vector3.up, hit.normal));
+            //Debug.Log(colina);
+            //Debug.Log(Vector3.Angle(Vector3.up, hit.normal));
             if (colina)
             {
                 Angulo = Vector3.Angle(Vector3.up, hit.normal);
