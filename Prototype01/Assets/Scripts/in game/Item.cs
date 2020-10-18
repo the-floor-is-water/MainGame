@@ -38,6 +38,8 @@ public class Item : MonoBehaviour
     //cooldown personalizable, por default está a 5 segundos:
     public float cooldown = 5f;
 
+    public int maxDamage = 10;
+
     //string para guardar el nombre del Game Object (el game object se llama como el arma)
     private string  nombre;
 
@@ -49,24 +51,40 @@ public class Item : MonoBehaviour
 
     private float tiempoDeEspera    = 0;
 
-    public int maxDamage = 10;
 
     
     void Start()
     {
         this.setTag( this.gameObject.tag );
-        this.setNombre( this.gameObject.name );
-        
+        this.setNombre( this.gameObject.name );   
     }
 
+    public Item(){
 
-    public void incrementVecesUsadas(){this.vecesUsadas += 1f;}
+    }
 
-    public void decrementTiempoDeEspera(){this.tiempoDeEspera -=Time.deltaTime;}
+    public Item (string tag, string name)
+    {
+        this.setTag( tag );
+        this.setNombre( name );   
+    }
 
-    public void resetTiempoDeEspera(){this.tiempoDeEspera = this.cooldown;}
+    public Item(Item item)
+    {
+        this.setTiempoDeEspera( item.getTiempoDeEspera() );
+        this.setmaxDamage( item.getmaxDamage() );
+        this.setVecesUsadas( item.getVecesUsadas() );
+
+        this.isActive = item.isActive;
+        this.type = item.type;
+        this.bulletType = item.bulletType;
+        this.image = Sprite.Instantiate<Sprite>(item.image);
+        this.cooldown = item.cooldown;
+
+    }
 
     public void setTiempoDeEspera(float value){this.tiempoDeEspera = value;}
+    
     public float getTiempoDeEspera(){return this.tiempoDeEspera;}
 
     public bool isArma(){return this.tag == "Arma";}
@@ -95,3 +113,4 @@ public class Item : MonoBehaviour
 
 
 }
+

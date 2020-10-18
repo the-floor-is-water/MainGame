@@ -6,7 +6,7 @@ using System.Collections;
 //esta clase va solo el el gameobject HUD de cada jugador
 public class Slot: MonoBehaviour {    
 
-    private Item item     = null;
+    public Wepon item  = null;
 
     //variablesque se definen en el inspector de unity
     public Image    slotImage;
@@ -35,7 +35,7 @@ public class Slot: MonoBehaviour {
     }
 
 
-    public Item getItem(){return this.item;}
+    public Wepon getItem(){return this.item;}
 
     public string getNombre(){return this.item.getNombre();}
 
@@ -46,6 +46,22 @@ public class Slot: MonoBehaviour {
     public void setItem(Item item)
     {
         this.clearSlot();
+        if(item == null)
+            return;
+        this.item = new Wepon( item );
+
+        this.slotImage.sprite = this.item.image;
+
+          if( this.item.isArma() )
+            this.loadCoolDown.value = (this.item.getVecesUsadas()/this.item.getmaxDamage());
+    }
+    
+    public void setItem(Wepon item)
+    {
+        this.clearSlot();
+
+        if(item == null)
+            return;
 
         this.item = item;
 
@@ -57,13 +73,18 @@ public class Slot: MonoBehaviour {
 
     public void clearSlot(){
 
-        if( this.estaVacio() )
+        if( this.estaVacio() ){
+            
+            if(this.loadCoolDown != null)
+                this.loadCoolDown.value = 0;
+
             return;
+        }
 
         this.item.setTiempoDeEspera( 0 );
         
         if(this.loadCoolDown != null)
-            this.loadCoolDown.value = (this.item.getVecesUsadas() / this.item.maxDamage);
+            this.loadCoolDown.value = 0;
         
         this.slotImage.sprite = null;
         this.item = null;
@@ -75,6 +96,7 @@ public class Slot: MonoBehaviour {
         //  Debug.Log("Valor de las veces de " + this.getNombre() + " es: " + this.vecesUsadas);
         if (this.item.getVecesUsadas() >= this.item.maxDamage)
         {
+            
             this.itemRoto();
             return;
         }
@@ -87,6 +109,7 @@ public class Slot: MonoBehaviour {
     }
 
     private void itemRoto(){
+        this.loadCoolDown.value = 0;
         this.item = null;
         this.slotImage.sprite = null;
 
@@ -105,8 +128,7 @@ public class Slot: MonoBehaviour {
                 //aqui puedes activar la animación, como gustes
                 this.incrementaLoUsado();
             }
-
-            if(this.item.getTag() == "Arma_especial")
+            else
             {
                 this.cooldown();
             }
