@@ -98,7 +98,8 @@ public class conexionComponentes : MonoBehaviour
              }
             // hips.GetComponent<Rigidbody>().AddForce(ray.direction.normalized * bulletForce, ForceMode.VelocityChange);
          }   */
-        if (Input.GetKeyDown(KeyCode.F))
+        //Funcion para calar daños
+       /* if (Input.GetKeyDown(KeyCode.F))
         {
             //toggleDead();
             //myRagController.ragdoll.RepairBones();
@@ -114,7 +115,7 @@ public class conexionComponentes : MonoBehaviour
             logicaPer.rb.isKinematic = true;
             logicaPer.rb.isKinematic = false;
 
-        }
+        }*/
         if ((controles.aButton || controles.spacebar) && logicaPer.tirado && !myRagController.isGettingUp && logicaPer.ragdollSuelo && refrescoCaido <= tiempo)
         {
             //toggleDead();

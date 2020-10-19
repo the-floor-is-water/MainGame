@@ -62,6 +62,13 @@ public class LogicaPersonaje1 : MonoBehaviour
     public GameObject proyectilSpawn;
     public GameObject PistolaRag;
     public GameObject Spine;
+    public ControlPlayer controlador;
+    public GameObject mira;
+    public bool disparar = false;
+    public float cLectura = 0;
+    public float cSpecial = 0;
+    public float cComun = 0;
+    public bool tArmaD = false;
     // Start is called before the first frame update
 
 
@@ -82,6 +89,7 @@ public class LogicaPersonaje1 : MonoBehaviour
         proyectilSpawn.transform.localScale = new Vector3(0, 0, 0);
         Pistola.transform.localScale = new Vector3(0, 0, 0);
         PistolaRag.transform.localScale = new Vector3(0, 0, 0);
+        mira.SetActive(false);
     }
 
     // Update is called once per frame
@@ -214,10 +222,18 @@ public class LogicaPersonaje1 : MonoBehaviour
             transform.Rotate(Vector3.down * Time.deltaTime * velocidadRotacion, Space.Self);
         }*/
         //Look();
-
         if (puedoMoverme && puedoMovermeGolpe)
         {
-
+           
+            if ((controles.rTriggerFloat>0 || controles.lClick) && !controlador.slot_1.estaVacio() && cLectura<tiempo && cComun<tiempo)
+            {
+                cLectura = tiempo + .5f;
+                controlador.Accionar = true;
+                Wepon item = controlador.slot_1.getItem();
+                controlador.usar = item;
+                Debug.Log(item.nombre);
+                //this.slot_1.usar_arma_o_Item();
+            }
             resetSalte = false;
             x = controles.moveHL;
             y = controles.moveVL;
@@ -243,11 +259,25 @@ public class LogicaPersonaje1 : MonoBehaviour
                 //Metodo de saltar---------------------------------------------------------------------------------------------------------------------------------------
                 if (puedoSaltar && puedoSaltarChoque)
             {
-                if (controles.aButton || controles.spacebar)
+                if (controles.aButton || controles.spacebar && !controles.Ekey && !controles.rightBumper )
                 {
                     saltar();
                     resetSalte = true;
                  
+                }
+                if ((controles.rightBumper || controles.Ekey) && !controlador.slot_3.estaVacio() && !controles.spacebar && !controles.aButton &&  cSpecial<tiempo)
+                {
+                    
+                    Wepon itemc = controlador.slot_3.getItem();
+                    cSpecial = tiempo + itemc.cooldown;
+                    fuerzaDeSalto = 23;
+                        saltar();
+                        fuerzaDeSalto = 12;
+                        resetSalte = true;
+                        controlador.slot_3.usar_arma_o_Item();
+                        itemc.isActive = true;
+                    
+                   
                 }
                 anim.SetBool("tocarSuelo", true);
             }
@@ -256,10 +286,11 @@ public class LogicaPersonaje1 : MonoBehaviour
                 estoyCallendo();
 
             }
+            
             //Fin de metodo de saltar---------------------------------------------------------------------------------------------------------------------------------------
 
             //Metodo de agacharse---------------------------------------------------------------------------------------------------------------------------------------
-            if ((controles.rightBumper || controles.lControl) && puedoSaltar)
+            if ((controles.leftBumper || controles.lControl) && puedoSaltar)
             {
                 agachado(true);
             }
@@ -271,30 +302,54 @@ public class LogicaPersonaje1 : MonoBehaviour
                 }
             }
             //Arma disparo---------------------------------------------------------------------------------------------------------------------------------------------------------
-            if ((controles.dpadVertical == 1 && dPadLevantado) || controles.num3)
+            if (!controlador.slot_1.estaVacio())
             {
                 dPadLevantado = false;
-
-                if (!armaDisparo)
+                Wepon itema = controlador.slot_1.getItem();
+                controlador.usar = itema;
+                if (    controlador.usar.type == 2)
                 {
                     anim.SetBool("armaDisparo", true);
-                    armaDisparo = true;
+                    tArmaD = true;
+                    //armaDisparo = true;
                     Pistola.transform.localScale = new Vector3(1, 1, 1);
 
                 }
-                else
+                else if(controlador.usar.type != 2 )
                 {
                     anim.SetBool("armaDisparo", false);
-                    armaDisparo = false;
+                    //armaDisparo = false;
+                    tArmaD = false;
                     Pistola.transform.localScale = new Vector3(0, 0, 0);
                 }
 
+            }
+            if (controles.rClick || controles.JLeftB)
+            {
+                armaDisparo = !armaDisparo;
+                mira.SetActive(armaDisparo);
+            }
+           if (tArmaD && controlador.slot_1.estaVacio())
+            {
+                anim.SetBool("armaDisparo", false);
+                tArmaD = false;
+                Pistola.transform.localScale = new Vector3(0, 0, 0);
+            }
+            
+            if (controlador.Accionar)
+            {
+                if (controlador.usar.type == 2)
+                {
+                    disparar = true;
+                    controlador.Accionar = false;
+                }
+                
             }
             //Fin de Arma disparo---------------------------------------------------------------------------------------------------------------------------------------------------
             //Fin de metodo de agacharse---------------------------------------------------------------------------------------------------------------------------------------
 
             //Metodo de correr--------------------------------------------------------------------------------------------------------------------------------------------------
-            if ((controles.leftBumper || controles.lShift) && (y == 1 || y == -1 || x == 1 || x == -1) && (refrescoCorrer <= tiempo) && puedoSaltar && puedoCorrer)
+            if ((controles.lTriggerFloat>0 || controles.lShift) && (y == 1 || y == -1 || x == 1 || x == -1) && (refrescoCorrer <= tiempo) && puedoSaltar && puedoCorrer)
             {  
                 correr(true);
 
@@ -306,10 +361,14 @@ public class LogicaPersonaje1 : MonoBehaviour
             //Fin de metodo correr---------------------------------------------------------------------------------------------------------------------------------------
         }
         //Metodo golpear---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-        if (controles.bButton )
+        if (controlador.Accionar && cComun<tiempo)
         {
-            cicloGolpe = true;
-           
+            if (controlador.usar.nombre == "box-gloves (1)")
+            {
+               
+                cicloGolpe = true;
+                controlador.Accionar = false;
+            }       
         }
 
     }
@@ -340,7 +399,8 @@ public class LogicaPersonaje1 : MonoBehaviour
                 Eagle.SetActive(true);
                 cGolpe = 50;
                 tGolpe = false;
-                
+                cComun = tiempo + controlador.usar.cooldown;
+                controlador.slot_1.usar_arma_o_Item();
             }
             Golpe();
             if (cGolpe != 0)

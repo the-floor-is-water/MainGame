@@ -19,7 +19,8 @@ public class ControlPlayer : MonoBehaviour
 
     private bool  dPadLevantado = true;
 
-
+    public Wepon usar;
+    public bool Accionar = false;
     // Update is called once per frame
     void Update()
     {
@@ -38,7 +39,7 @@ public class ControlPlayer : MonoBehaviour
         }
         else
         {
-            //this.mapGamepad( );
+            this.mapGamepad( );
         }
 
     }
@@ -62,10 +63,14 @@ public class ControlPlayer : MonoBehaviour
             }
         }
 
-        if( this.controlManager.lClick )
+       /* if( this.controlManager.lClick && !this.slot_1.estaVacio())
         {
-            this.slot_1.usar_arma_o_Item();
-        }
+            Accionar = true;
+            Wepon item = this.slot_1.getItem();
+            usar = item;
+            Debug.Log(item.nombre);
+            //this.slot_1.usar_arma_o_Item();
+        }*/
 
         if( this.controlManager.Qkey )
         {
@@ -95,20 +100,16 @@ public class ControlPlayer : MonoBehaviour
 
     }
 
-    /*private void mapGamepad(){
+    private void mapGamepad(){
         
-        //para resetear el pad
-        if (this.controlManager.dpadVertical == 0 && this.controlManager.dpadHorizontal == 0)
-        {
-            this.dPadLevantado = true;
-        }
+       
 
-        if((this.controlManager.dpadVertical == 1 || this.controlManager.dpadVertical == -1) && this.dPadLevantado)
+        if(this.controlManager.xButton)
         {
             if(!this.slot_1.estaVacio() && !this.slot_2.estaVacio())
             {
-                Item item = this.slot_1.getItem();
-                Item item2 = this.slot_2.getItem();
+                Wepon item = this.slot_1.getItem();
+                Wepon item2 = this.slot_2.getItem();
                 
                 item2.isActive = true;
                 item.isActive = false;
@@ -118,30 +119,20 @@ public class ControlPlayer : MonoBehaviour
 
             }
         }
-
-        if( this.controlManager.rightBumper )
-        {
-            this.slot_1.usar_arma_o_Item();
-        }
         
-        if( this.controlManager.rTriggerFloat )
-        {
-            this.slot_3.usar_arma_o_Item();
-        }
-        
-        if( this.controlManager.xButton )
+        if( this.controlManager.bButton )
         {
             this.slot_1.setItem( this.slot_2.getItem() );
             this.slot_2.clearSlot();
         }
 
-        if( this.controlManager.bButton )
+        if( this.controlManager.yButton )
         {
             this.slot_3.clearSlot();
         }
 
 
-    }*/
+    }
 
     void OnTriggerEnter3D(Collision other) {
     }

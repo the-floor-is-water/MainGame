@@ -22,13 +22,14 @@ public class Item : MonoBehaviour
     3: especial
     */
     public int type = 0;
-    
+
     /*
     variable que solo aplica a las armas de tipo 2, donde:
     ____________________________________________   
-    1: bounce bullets
-    2: balloon bullets
-    3: crazy bouncy bullets
+    1: crazy bouncy bullets
+    2: bounce bullets
+    3: balloon bullets
+    
     */
     public int bulletType = 0;
 

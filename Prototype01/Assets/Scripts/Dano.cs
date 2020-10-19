@@ -41,6 +41,7 @@ public class Dano : MonoBehaviour
                 myRagController.GoRagdoll("");
                 logicaPer.tirado = true;
                 logicaPer.armaDisparo = false;
+                logicaPer.mira.SetActive(false);
                 logicaPer.rb.isKinematic = true;
                 logicaPer.rb.isKinematic = false;
                 miConexionComponentes.refrescoCaido = miConexionComponentes.tiempo + 4f;

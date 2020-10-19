@@ -70,7 +70,7 @@ public class CamaraControl : MonoBehaviour
             mouseY = Mathf.Clamp(mouseY, rootMin, rootMax);
             target.rotation = Quaternion.Euler(mouseY, mouseX, 0f);
             player.rotation = Quaternion.Euler(0f, mouseX, 0f);
-            if (!personaje.armaDisparo)
+            if (!personaje.tArmaD)
             {
                 Head.transform.localRotation = Quaternion.Euler(mouseY, 0, 0);
             }
@@ -89,7 +89,7 @@ public class CamaraControl : MonoBehaviour
                 rotSpine = 0;
                 aux = false;
             }
-            if (!personaje.armaDisparo)
+            if (!personaje.tArmaD)
             {
                 if (rotSpine > 30 || rotSpine < -30)
                 {
