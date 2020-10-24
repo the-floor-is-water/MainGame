@@ -24,19 +24,22 @@ public class movimientoProyectil : MonoBehaviour
         tiempoVida = tiempo + 10f;
         /*rb = this.GetComponent<Rigidbody>();
         rb.AddForce(rb.transform.forward * velocidad, ForceMode.Impulse);*/
+       
+        transform.position += transform.forward * (velocidad * Time.deltaTime);
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         
         
-        transform.localScale += new Vector3(.003f, .003f, .003f);
-        velocidad -= .05f;
+        //transform.localScale += new Vector3(.003f, .003f, .003f);
+        //velocidad -= .05f;
         tiempo = tiempo + 1 * Time.deltaTime;
         if (velocidad>0 && !choque)
         {
             transform.position += transform.forward * (velocidad * Time.deltaTime);
+            
         }
         if(choque && velocidad>0)
         {
@@ -63,6 +66,8 @@ public class movimientoProyectil : MonoBehaviour
         posicion = transform.position;
         choque = !choque;
         nChoque += 1;
+       
+       
         Debug.Log("Colisiono");
 
     }

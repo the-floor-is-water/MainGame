@@ -21,58 +21,61 @@ public class Empuje : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-       
-        
-       
-        if (Personaje.puedoSaltar)
-        {
-            Personaje.anim.SetBool("tocarSuelo", true);
-        }
 
-        Personaje.bEmpujado = true;
-        PosicionD = other.transform.position;
-        var variable =  Personaje.rb.transform.position - PosicionD;
-       
-        Personaje.puedoCorrer = false;
-        Personaje.puedoSaltarChoque = false;
-      
+
+        if (other.GetComponentInParent<RefullItem>() == null)
+        {
+            if (Personaje.puedoSaltar)
+            {
+                Personaje.anim.SetBool("tocarSuelo", true);
+            }
+
+            Personaje.bEmpujado = true;
+            PosicionD = other.transform.position;
+            var variable = Personaje.rb.transform.position - PosicionD;
+
+            Personaje.puedoCorrer = false;
+            Personaje.puedoSaltarChoque = false;
+
             variable.y = 0;
-       
 
-        float fuerzaY = 0;
-        if (Personaje.puedoSaltar)
-        {
-            fuerzaY = 0;
+
+            float fuerzaY = 0;
+            if (Personaje.puedoSaltar)
+            {
+                fuerzaY = 0;
+            }
+            else
+            {
+                fuerzaY = -.2f;
+            }
+            if (!Personaje.estoyAgachado)
+            {
+                Personaje.rb.AddForce(((variable.normalized * 12)) + new Vector3(0, fuerzaY, 0), ForceMode.VelocityChange);
+            }
+            else
+            {
+                Personaje.rb.AddForce(((variable.normalized * 24)) + new Vector3(0, fuerzaY, 0), ForceMode.VelocityChange);
+            }
+            if (other.tag != "personaje" && other.GetComponentInParent<movimientoProyectil2>() != null && other.GetComponentInParent<movimientoProyectil>() != null)
+            {
+                Personaje.cicloGolpe = false;
+                Personaje.tGolpe = true;
+                Personaje.cGolpe = 0;
+                Personaje.puedoMovermeGolpe = true;
+                Personaje.anim.SetBool("EaglePunch", false);
+            }
+
+            /* Personaje.puedoCorrer = false;
+             Personaje.puedoSaltarChoque = false;
+             Collider[] hitColliders = Physics.OverlapSphere(transform.position, 90);
+             foreach (var hitCollider in hitColliders)
+             {
+                 float fuerza = 3;
+                 Personaje.rb.AddForce(hitCollider.transform.forward*-1/7, ForceMode.VelocityChange);
+             }*/
+
         }
-        else
-        {
-            fuerzaY = -.2f;
-        }
-        if (!Personaje.estoyAgachado)
-        {
-            Personaje.rb.AddForce(((variable.normalized * 12)) + new Vector3(0, fuerzaY, 0), ForceMode.VelocityChange);
-        }
-        else
-        {
-            Personaje.rb.AddForce(((variable.normalized * 24)) + new Vector3(0, fuerzaY, 0), ForceMode.VelocityChange);
-        }
-        if (other.tag!="personaje" && other.GetComponentInParent<movimientoProyectil2>() != null && other.GetComponentInParent<movimientoProyectil>() != null)
-        {
-            Personaje.cicloGolpe = false;
-            Personaje.tGolpe = true;
-            Personaje.cGolpe = 0;
-            Personaje.puedoMovermeGolpe = true;
-            Personaje.anim.SetBool("EaglePunch", false);
-        }
-       
-        /* Personaje.puedoCorrer = false;
-         Personaje.puedoSaltarChoque = false;
-         Collider[] hitColliders = Physics.OverlapSphere(transform.position, 90);
-         foreach (var hitCollider in hitColliders)
-         {
-             float fuerza = 3;
-             Personaje.rb.AddForce(hitCollider.transform.forward*-1/7, ForceMode.VelocityChange);
-         }*/
 
 
 

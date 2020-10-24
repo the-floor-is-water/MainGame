@@ -8,7 +8,7 @@ public class SoundManager : MonoBehaviour
 
     public void playClick()
     {
-        audiosrc.Play();
+        //audiosrc.Play();
     }
     
 }

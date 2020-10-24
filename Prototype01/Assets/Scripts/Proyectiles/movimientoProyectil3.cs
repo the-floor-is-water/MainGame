@@ -24,11 +24,12 @@ public class movimientoProyectil3 : MonoBehaviour
         tiempo = tiempo + 1 * Time.deltaTime;
         tiempoVida = tiempo + 10f;
         rb = this.GetComponent<Rigidbody>();
+        transform.position += transform.forward * (velocidad * Time.deltaTime);
         //rb.AddForce(rb.transform.forward * velocidad, ForceMode.Impulse);
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
 
 

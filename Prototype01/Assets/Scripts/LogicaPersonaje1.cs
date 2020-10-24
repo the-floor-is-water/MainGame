@@ -61,7 +61,17 @@ public class LogicaPersonaje1 : MonoBehaviour
     public GameObject Pistola;
     public GameObject proyectilSpawn;
     public GameObject PistolaRag;
+    public GameObject pugilRag;
     public GameObject Spine;
+    public GameObject BrazoD;
+    public GameObject BrazoDF;
+    public GameObject ManoD;
+    public GameObject hombroD;
+    public GameObject BrazoI;
+    public GameObject BrazoIF;
+    public GameObject ManoI;
+    public GameObject hombroI;
+    public GameObject pugil;
     public ControlPlayer controlador;
     public GameObject mira;
     public bool disparar = false;
@@ -69,6 +79,11 @@ public class LogicaPersonaje1 : MonoBehaviour
     public float cSpecial = 0;
     public float cComun = 0;
     public bool tArmaD = false;
+    public bool cicloCotonete = false;
+    public float posBX=0, posBY=0;
+    public bool cicloCotoneter = false;
+    public GameObject cotonete;
+    Vector3 vVacio = new Vector3(0, 0, 0);
     // Start is called before the first frame update
 
 
@@ -88,7 +103,9 @@ public class LogicaPersonaje1 : MonoBehaviour
         danoAgachado.enabled = false;
         proyectilSpawn.transform.localScale = new Vector3(0, 0, 0);
         Pistola.transform.localScale = new Vector3(0, 0, 0);
+        pugilRag.transform.localScale = new Vector3(0, 0, 0);
         PistolaRag.transform.localScale = new Vector3(0, 0, 0);
+        pugil.transform.localScale = new Vector3(0, 0, 0);
         mira.SetActive(false);
     }
 
@@ -255,9 +272,18 @@ public class LogicaPersonaje1 : MonoBehaviour
             {
                 dPadLevantado = true;
             }
-           
-                //Metodo de saltar---------------------------------------------------------------------------------------------------------------------------------------
-                if (puedoSaltar && puedoSaltarChoque)
+            if (controlador.Accionar && cComun < tiempo)
+            {
+                if (controlador.usar.nombre.Contains("pugil (1)"))
+                {
+
+                    cicloCotonete = true;
+                    controlador.Accionar = false;
+                   
+                }
+            }
+            //Metodo de saltar---------------------------------------------------------------------------------------------------------------------------------------
+            if (puedoSaltar && puedoSaltarChoque)
             {
                 if (controles.aButton || controles.spacebar && !controles.Ekey && !controles.rightBumper )
                 {
@@ -285,6 +311,33 @@ public class LogicaPersonaje1 : MonoBehaviour
             {
                 estoyCallendo();
 
+            }
+            if (!controlador.slot_1.estaVacio())
+            {
+               
+                dPadLevantado = false;
+                Wepon itema = controlador.slot_1.getItem();
+                controlador.usar = itema;
+                if (controlador.usar.nombre.Contains("pugil (1)"))
+                {
+                   
+                    pugil.transform.localScale = new Vector3(1, 1, 1);
+                    BrazoD.transform.localRotation = Quaternion.Euler(0, -60, 0);
+                    BrazoI.transform.localRotation = Quaternion.Euler(25, 20, 30);
+                    BrazoDF.transform.localRotation = Quaternion.Euler(0, -30, 0);
+                    BrazoIF.transform.localRotation = Quaternion.Euler(0, 90, -25);
+                    ManoD.transform.localRotation = Quaternion.Euler(0,0,0);
+                    ManoI.transform.localRotation = Quaternion.Euler(0, 0, 0);
+                }
+                else if (!controlador.usar.nombre.Contains("pugil (1)") )
+                {
+                    pugil.transform.localScale = new Vector3(0, 0, 0);
+                }
+
+            }
+            if (pugil.transform.localScale != vVacio && controlador.slot_1.estaVacio())
+            {
+                pugil.transform.localScale = new Vector3(0, 0, 0);
             }
             
             //Fin de metodo de saltar---------------------------------------------------------------------------------------------------------------------------------------
@@ -363,13 +416,22 @@ public class LogicaPersonaje1 : MonoBehaviour
         //Metodo golpear---------------------------------------------------------------------------------------------------------------------------------------------------------------------
         if (controlador.Accionar && cComun<tiempo)
         {
-            if (controlador.usar.nombre == "box-gloves (1)")
+            if (controlador.usar.nombre.Contains("box-gloves (1)"))
             {
                
                 cicloGolpe = true;
                 controlador.Accionar = false;
             }       
         }
+        if (cicloCotonete)
+        {
+            // Brazo.transform.localRotation = Quaternion.Euler(-35, -50, 0);
+            cotonete.SetActive(true);
+            cComun = tiempo + controlador.usar.cooldown;
+            moverBrazo();
+    
+        }
+
 
     }
     void FixedUpdate()
@@ -409,9 +471,66 @@ public class LogicaPersonaje1 : MonoBehaviour
             }
 
         }
+       
         //Move();
 
     }
+    public void moverBrazo()
+    {
+        if (!cicloCotoneter)
+        {
+            hombroD.transform.localRotation = Quaternion.Euler(0, posBY, 0);
+            ManoD.transform.localRotation = Quaternion.Euler(0, 0, 0);
+            BrazoD.transform.localRotation = Quaternion.Euler(0, posBY, 30);
+            
+            ManoI.transform.localRotation = Quaternion.Euler(0, 0, 0);
+            BrazoI.transform.localRotation = Quaternion.Euler(0, posBY + 40, -posBX + 30);
+            //Spine.transform.localRotation = Quaternion.Euler(posBX, 0, 0);
+            if (posBX != -50)
+            {
+                posBX -= 3;
+            }
+            if (posBY != -90)
+            {
+                posBY -= 7;
+            }
+
+            if (posBX <= -50 && posBY <= -90)
+            {
+                cicloCotoneter = true;
+            }
+        }
+        else
+        {
+            hombroD.transform.localRotation = Quaternion.Euler(0, posBY, 0);
+            ManoD.transform.localRotation = Quaternion.Euler(0, 0, 0);
+            BrazoD.transform.localRotation = Quaternion.Euler(0, posBY, 30);
+            
+            ManoI.transform.localRotation = Quaternion.Euler(0, 0, 0);
+            BrazoI.transform.localRotation = Quaternion.Euler(0, posBY + 40, -posBX + 30);
+            //Spine.transform.localRotation = Quaternion.Euler(posBX, 0, 0);
+            if (posBX != 0)
+            {
+                posBX += 3;
+            }
+            if (posBY != 0)
+            {
+                posBY += 7;
+            }
+
+            if (posBX >= 0 && posBY >= 0)
+            {
+                posBX = 0;
+                posBY = 0;
+                cicloCotonete = false;
+                cicloCotoneter = false;
+                cotonete.SetActive(false);
+                
+            }
+        }
+       
+    }
+
     public void saltar()
     {
         anim.SetBool("salte", true);

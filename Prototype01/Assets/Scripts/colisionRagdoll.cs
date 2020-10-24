@@ -130,7 +130,16 @@ public class colisionRagdoll : MonoBehaviour
             }
             if (other.GetComponentInParent<EaglePunch>() != null)
             {
+                miConexionComponentes.refrescoCaido = miConexionComponentes.tiempo + 3f;
                 Debug.Log("Eagle pucnh");
+                PosicionD = other.transform.position;
+                var variable = transform.position - PosicionD;
+                variable.y = 0;
+                miConexionComponentes.hips.GetComponent<Rigidbody>().AddForce((((variable.normalized * 20f)) + new Vector3(0, 3, 0)), ForceMode.VelocityChange);
+            }
+            if (other.GetComponentInParent<Cotonete>() != null)
+            {
+                miConexionComponentes.refrescoCaido = miConexionComponentes.tiempo + 3f;
                 PosicionD = other.transform.position;
                 var variable = transform.position - PosicionD;
                 variable.y = 0;

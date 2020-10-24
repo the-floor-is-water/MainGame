@@ -20,7 +20,7 @@ public class movingArch : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         float ms = movingSpeed * velocityAd;
         float ss = spinningSpeed * velocityAd;

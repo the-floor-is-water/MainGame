@@ -18,7 +18,7 @@ public class pylars : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         float ms = movingSpeed * velocityAd;
         if (goingUp)

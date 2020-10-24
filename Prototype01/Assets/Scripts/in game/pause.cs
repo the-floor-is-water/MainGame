@@ -105,7 +105,7 @@ Right Trigger Shared Axis       3rd Axis                                    0 to
     }
 
     public void closePause(){
-
+        Debug.Log("Pique cerrar");
         if( !this.enPausa )
             {
                 Cursor.visible = true;

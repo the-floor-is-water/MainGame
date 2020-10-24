@@ -32,13 +32,17 @@ public class Dano : MonoBehaviour
 
         if (other.tag == "dano" && !logicaPer.tirado)
         {
-            if (logicaPer.tGolpe || other.GetComponentInParent<Chaser>() != null || other.GetComponentInParent<movimientoProyectil3>() != null || other.GetComponentInParent<EaglePunch>() != null)
+            if (!logicaPer.cicloCotonete  && logicaPer.tGolpe || other.GetComponentInParent<Chaser>() != null || other.GetComponentInParent<movimientoProyectil3>() != null || other.GetComponentInParent<EaglePunch>() != null)
             {
                 ragdoll.gameObject.SetActive(true);
                 animatedM.gameObject.SetActive(false);
                 //nav.enabled = false;
                 // myRagController.GoRagdoll("manual");
                 myRagController.GoRagdoll("");
+                logicaPer.cicloCotonete = false;
+                logicaPer.cicloCotoneter = false;
+                logicaPer.posBX = 0;
+                logicaPer.posBY = 0;
                 logicaPer.tirado = true;
                 logicaPer.armaDisparo = false;
                 logicaPer.mira.SetActive(false);
@@ -94,6 +98,14 @@ public class Dano : MonoBehaviour
                     logicaPer.tGolpe = true;
                     logicaPer.cGolpe = 0;
                     logicaPer.anim.SetBool("EaglePunch", false);
+                    PosicionD = other.transform.position;
+                    var variable = transform.position - PosicionD;
+                    variable.y = 0;
+                    miConexionComponentes.hips.GetComponent<Rigidbody>().AddForce((((variable.normalized * 20f)) + new Vector3(0, 3, 0)), ForceMode.VelocityChange);
+                }
+                if (other.GetComponentInParent<Cotonete>() != null)
+                {
+                   
                     PosicionD = other.transform.position;
                     var variable = transform.position - PosicionD;
                     variable.y = 0;

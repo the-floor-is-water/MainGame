@@ -99,7 +99,7 @@ public class conexionComponentes : MonoBehaviour
             // hips.GetComponent<Rigidbody>().AddForce(ray.direction.normalized * bulletForce, ForceMode.VelocityChange);
          }   */
         //Funcion para calar daños
-       /* if (Input.GetKeyDown(KeyCode.F))
+       /*if (Input.GetKeyDown(KeyCode.F))
         {
             //toggleDead();
             //myRagController.ragdoll.RepairBones();

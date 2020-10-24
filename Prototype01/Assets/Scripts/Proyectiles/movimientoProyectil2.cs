@@ -14,6 +14,7 @@ public class movimientoProyectil2 : MonoBehaviour
     Vector3 experimento;
     Rigidbody rb;
     public float bulletForce;
+    public Vector3 adelante;
     void Start()
     {
         tiempo = tiempo + 1 * Time.deltaTime;
@@ -23,7 +24,7 @@ public class movimientoProyectil2 : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         tiempo = tiempo + 1 * Time.deltaTime;
         if (tiempoVida < tiempo)
@@ -39,5 +40,7 @@ public class movimientoProyectil2 : MonoBehaviour
             collision.gameObject.GetComponent<fallingTiles>().playerEntered = true;
         }
         posicion = rb.transform.position;
+        adelante = transform.position - collision.transform.position;
+        rb.AddForce(rb.transform.forward * velocidad, ForceMode.Acceleration);
     }
 }

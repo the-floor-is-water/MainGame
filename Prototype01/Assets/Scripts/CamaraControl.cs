@@ -102,14 +102,21 @@ public class CamaraControl : MonoBehaviour
                         rotSpine = -30;
                     }
                 }
-                if (personaje.estoyCorriendo || personaje.estoyAgachado)
+                if (personaje.estoyCorriendo || personaje.estoyAgachado && !personaje.cicloCotonete)
                 {
                     Spine.transform.localRotation = Quaternion.Euler(35, rotSpine, 0);
                 }
                 else
                 {
-                   
-                    Spine.transform.localRotation = Quaternion.Euler(0, rotSpine, 0);
+                    if (personaje.cicloCotonete)
+                    {
+                        Spine.transform.localRotation = Quaternion.Euler(-personaje.posBX, rotSpine, 0);
+                    }
+                    else
+                    {
+                        Spine.transform.localRotation = Quaternion.Euler(0, rotSpine, 0);
+                    }
+                    
                 }    
             }
             
