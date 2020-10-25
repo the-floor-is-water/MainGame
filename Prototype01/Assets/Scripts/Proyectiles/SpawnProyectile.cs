@@ -11,6 +11,10 @@ public class SpawnProyectile : MonoBehaviour
     public float refrescoDisparar;
     public conexionComponentes miCon;
     public Controles controles;
+    public Material matP1;
+    public Material matP2;
+    public Material matP3;
+    public Material matP4;
     // Start is called before the first frame update
     void Start()
     {
@@ -77,6 +81,23 @@ public class SpawnProyectile : MonoBehaviour
         if (spawnPoint != null)
         {
             efecto = Instantiate(efectoSpawneado, spawnPoint.transform.position, Quaternion.identity);
+            var render = efecto.GetComponent<Renderer>();
+            if (controles.Contenedor.tag=="Jugador1")
+            {
+                render.material.CopyPropertiesFromMaterial(matP1);
+            }
+            if (controles.Contenedor.tag == "Jugador2")
+            {
+                render.material.CopyPropertiesFromMaterial(matP2);
+            }
+            if (controles.Contenedor.tag == "Jugador3")
+            {
+                render.material.CopyPropertiesFromMaterial(matP3);
+            }
+            if (controles.Contenedor.tag == "Jugador4")
+            {
+                render.material.CopyPropertiesFromMaterial(matP4);
+            }
             efecto.gameObject.SetActive(true);
             efecto.transform.localRotation = controlCamara.target.rotation;
         }

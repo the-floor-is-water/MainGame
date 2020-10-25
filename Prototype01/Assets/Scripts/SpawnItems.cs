@@ -20,13 +20,19 @@ public class SpawnItems : MonoBehaviour
     }
     public void spawnItem()
     {
-        GameObject spawnear;
-        
-        foreach (var items in Spawns)
+        //GameObject spawnear;
+
+        /*foreach (var items in Spawns)
         {
             var random = UnityEngine.Random.Range(0, Litems.Count);
             spawnear = Instantiate(Litems[random], items.transform.position, Quaternion.identity);
             spawnear.gameObject.SetActive(true);
+        }*/
+        var aux = UnityEngine.Random.Range(6, 10);
+        for (int i = 0; i < aux; i++)
+        {
+            var random = UnityEngine.Random.Range(0, Spawns.Count);
+            Spawns[random].SetActive(false);
         }
     }
 }

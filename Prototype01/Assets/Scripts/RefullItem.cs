@@ -12,14 +12,14 @@ public class RefullItem : MonoBehaviour
      bool Active;
     void Start()
     {
-        
+        Active = true;
     }
 
     // Update is called once per frame
     void Update()
     {
         tiempo = tiempo + 1 * Time.deltaTime;
-        if (tiempoR!=0 && tiempo>tiempoR && Active)
+        if (tiempo>tiempoR && Active)
         {
             spawnItem();
             Active = false;
