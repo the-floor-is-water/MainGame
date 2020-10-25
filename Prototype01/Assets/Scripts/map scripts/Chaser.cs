@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Chaser : MonoBehaviour
 {
-     float chaserSpeed = 300f;
+    public float xSpeed = 1f;
+    float chaserSpeed = 30f;
 
-    float velocityAd = 0.1f;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +17,7 @@ public class Chaser : MonoBehaviour
     void Update()
     {
 
-        float rotationVelocity = chaserSpeed * velocityAd;
+        float rotationVelocity = chaserSpeed * xSpeed;
         transform.Rotate(new Vector3(rotationVelocity*Time.deltaTime, 0f, 0f));
     }
 }
