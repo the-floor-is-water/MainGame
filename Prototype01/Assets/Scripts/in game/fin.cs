@@ -20,7 +20,7 @@ public class fin : MonoBehaviour
         con el nomero en jugadorGanador
     */
     public static int jugadorGanador = 0;
-
+    public Text titulo;
     public Text ganador;
     public GameObject menuFin;
     // Start is called before the first frame update
@@ -36,7 +36,19 @@ public class fin : MonoBehaviour
         {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
-            this.ganador.text = "Jugador #" + fin.jugadorGanador;
+            if (fin.jugadorGanador == 5)
+            {
+                this.ganador.text = "Jugador T";
+            }
+            else
+            {
+                this.ganador.text = "Jugador #" + fin.jugadorGanador;
+            }
+            if (fin.jugadorGanador == 6)
+            {
+                this.titulo.text = "";
+                this.ganador.text = "Empate";
+            }
             this.menuFin.SetActive( true );
         }
     }
@@ -44,5 +56,6 @@ public class fin : MonoBehaviour
     public void abandonarPartida(){
         Time.timeScale = 1;
         Loader.loadScene("Menu");
+        fin.jugadorGanador = 0;
     }
 }
