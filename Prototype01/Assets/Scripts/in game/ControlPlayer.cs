@@ -140,7 +140,7 @@ public class ControlPlayer : MonoBehaviour
     void OnCollisionStay(Collision other) {
           
           Item master = other.gameObject.GetComponent <Item> ();
-            Debug.Log(master);
+           // Debug.Log(master);
 
             if(other.gameObject.tag == "Arma")
             {
