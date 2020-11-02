@@ -46,8 +46,8 @@ public class LogicaPies : MonoBehaviour
         {
             //Debug.Log(hit.normal);
             colina = Vector3.Angle(Vector3.up, hit.normal) >= 30;
-            Debug.Log(colina);
-            Debug.Log(Vector3.Angle(Vector3.up, hit.normal));
+            //Debug.Log(colina);
+            //Debug.Log(Vector3.Angle(Vector3.up, hit.normal));
             if (colina)
             {
                 Angulo = Vector3.Angle(Vector3.up, hit.normal);

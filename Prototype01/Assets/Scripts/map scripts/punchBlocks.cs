@@ -14,20 +14,22 @@ public class punchBlocks : MonoBehaviour
     Vector3 initialPosition;
     bool goingForward = true;
     float tiempo = 0f;
+    bool inverse;
     
     // Start is called before the first frame update
     void Start()
     {
         rb = this.GetComponent<Rigidbody>();
         initialPosition = rb.transform.position;
+        if (movingSpeed < 0)
+            inverse = true;
+        else
+            inverse = false;
     }
 
     // Update is called once per frame
     void Update()
-    {
-       
-        
-        
+    {        
         float ms = movingSpeed * velocityAd;
         if (paused)
         {
@@ -40,17 +42,32 @@ public class punchBlocks : MonoBehaviour
                 tiempo = tiempo + 1 * Time.deltaTime;
         }
         else 
-        { 
-            if (goingForward)
+        {
+            if (goingForward && !inverse)
             {
                 rb.transform.position = new Vector3(rb.transform.position.x, rb.transform.position.y, rb.transform.position.z - ms);
                 if (rb.transform.position.z <= (initialPosition.z - 20f))
                     goingForward = false;
             }
-            else
+            else if (goingForward && inverse)
+            {
+                rb.transform.position = new Vector3(rb.transform.position.x, rb.transform.position.y, rb.transform.position.z - ms);
+                if (rb.transform.position.z >= (initialPosition.z + 20f))
+                    goingForward = false;
+            }
+            else if (!goingForward && !inverse)
             {
                 rb.transform.position = new Vector3(rb.transform.position.x, rb.transform.position.y, rb.transform.position.z + ms);
                 if (rb.transform.position.z >= initialPosition.z)
+                {
+                    paused = true;
+                    goingForward = true;
+                }
+            }
+            else
+            {
+                rb.transform.position = new Vector3(rb.transform.position.x, rb.transform.position.y, rb.transform.position.z + ms);
+                if (rb.transform.position.z <= initialPosition.z)
                 {
                     paused = true;
                     goingForward = true;
