@@ -92,6 +92,16 @@ public class Dano : MonoBehaviour
                     var variable = transform.position - PosicionD;
                     miConexionComponentes.hips.GetComponent<Rigidbody>().AddForce((((variable.normalized * 3f)) + new Vector3(0, 5, 0)), ForceMode.VelocityChange);
                 }
+                if (other.GetComponentInParent<smallPunchers>() != null)
+                {
+                    logicaPer.cicloGolpe = false;
+                    logicaPer.tGolpe = true;
+                    logicaPer.cGolpe = 0;
+                    logicaPer.anim.SetBool("EaglePunch", false);
+                    PosicionD = other.transform.position;
+                    var variable = transform.position - PosicionD;
+                    miConexionComponentes.hips.GetComponent<Rigidbody>().AddForce((((variable.normalized * 3f)) + new Vector3(0, 5, 0)), ForceMode.VelocityChange);
+                }
                 if (other.GetComponentInParent<EaglePunch>() != null)
                 {
                     logicaPer.cicloGolpe = false;

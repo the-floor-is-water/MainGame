@@ -72,14 +72,20 @@ public class colisionRagdoll : MonoBehaviour
                 var variable = transform.position - PosicionD;
                 miConexionComponentes.hips.GetComponent<Rigidbody>().AddForce(((( variable.normalized * 3f))+ new Vector3 (0,5,0)), ForceMode.VelocityChange);
             }
-           /* if (other.GetComponentInParent<EaglePunch>() != null)
+            if (other.GetComponentInParent<smallPunchers>() != null)
             {
-                Debug.Log("Eagle pucnh");
                 PosicionD = other.transform.position;
                 var variable = transform.position - PosicionD;
-                variable.y = 0;
-                miConexionComponentes.hips.GetComponent<Rigidbody>().AddForce((((variable.normalized * 3f)) + new Vector3(0, 3, 0)), ForceMode.VelocityChange);
-            }*/
+                miConexionComponentes.hips.GetComponent<Rigidbody>().AddForce((((variable.normalized * 3f)) + new Vector3(0, 5, 0)), ForceMode.VelocityChange);
+            }
+            /* if (other.GetComponentInParent<EaglePunch>() != null)
+             {
+                 Debug.Log("Eagle pucnh");
+                 PosicionD = other.transform.position;
+                 var variable = transform.position - PosicionD;
+                 variable.y = 0;
+                 miConexionComponentes.hips.GetComponent<Rigidbody>().AddForce((((variable.normalized * 3f)) + new Vector3(0, 3, 0)), ForceMode.VelocityChange);
+             }*/
         }
     }
     private void OnTriggerEnter(Collider other)
