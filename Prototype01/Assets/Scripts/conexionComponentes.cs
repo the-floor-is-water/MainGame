@@ -31,7 +31,26 @@ public class conexionComponentes : MonoBehaviour
     {
         ragdoll.gameObject.SetActive(false);
     }
+    public void levantarse()
+    {
+        animatedM.transform.position = hips.transform.position;
+        ragdoll.gameObject.SetActive(false);
+        animatedM.gameObject.SetActive(true);
+        //nav.enabled = true;
+        //myRagController.ragdoll.RepairBones();
+        //myRagController.GetUpImmediate();
+        myRagController.StartGetUp();
 
+        logicaPer.x = 0;
+        logicaPer.y = 0;
+        logicaPer.Move();
+        logicaPer.puedoMoverme = false;
+        logicaPer.anim.SetBool("tocarSuelo", true);
+        logicaPer.tGolpe = true;
+        logicaPer.cGolpe = 0;
+        logicaPer.puedoMovermeGolpe = true;
+        logicaPer.anim.SetBool("EaglePunch", false);
+    }
     // Update is called once per frame
     void Update()
     {

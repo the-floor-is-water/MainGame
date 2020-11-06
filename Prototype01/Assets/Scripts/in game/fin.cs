@@ -58,4 +58,11 @@ public class fin : MonoBehaviour
         Loader.loadScene("Menu");
         fin.jugadorGanador = 0;
     }
+    public void reiniciarPartida()
+    {
+        Time.timeScale = 1;
+        string aux = Application.loadedLevelName;
+        Loader.loadScene(aux);
+        fin.jugadorGanador = 0;
+    }
 }

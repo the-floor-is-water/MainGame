@@ -28,7 +28,8 @@ public class colisionRagdoll : MonoBehaviour
         {
             if (other.gameObject.layer == 4)
             {
-                transform.parent.parent.gameObject.SetActive(false);
+                //transform.parent.parent.gameObject.SetActive(false);
+                miConexionComponentes.levantarse();
             }
             logicaPersonaje.ragdollSuelo = true;
             if (other.GetComponentInParent<movimientoProyectil>() != null)
@@ -70,13 +71,13 @@ public class colisionRagdoll : MonoBehaviour
             {
                 PosicionD = other.transform.position;
                 var variable = transform.position - PosicionD;
-                miConexionComponentes.hips.GetComponent<Rigidbody>().AddForce(((( variable.normalized * 3f))+ new Vector3 (0,5,0)), ForceMode.VelocityChange);
+                miConexionComponentes.hips.GetComponent<Rigidbody>().AddForce(((( variable.normalized * 1.5f))+ new Vector3 (0,2,0)), ForceMode.VelocityChange);
             }
             if (other.GetComponentInParent<smallPunchers>() != null)
             {
                 PosicionD = other.transform.position;
                 var variable = transform.position - PosicionD;
-                miConexionComponentes.hips.GetComponent<Rigidbody>().AddForce((((variable.normalized * 3f)) + new Vector3(0, 5, 0)), ForceMode.VelocityChange);
+                miConexionComponentes.hips.GetComponent<Rigidbody>().AddForce((((variable.normalized * 1.5f)) + new Vector3(0, 2, 0)), ForceMode.VelocityChange);
             }
             /* if (other.GetComponentInParent<EaglePunch>() != null)
              {

@@ -7,6 +7,14 @@ public class onClickStart : MonoBehaviour
    public void Onclickinicio()
    {
        //Debug.Log("Entro");
-       Loader.loadScene("firstMap");
+     
+        if (Config.configuraciones.mapa==1)
+        {
+            Loader.loadScene("firstMap");
+        }
+        if (Config.configuraciones.mapa == 2)
+        {
+            Loader.loadScene("secondMap");
+        }
    }
 }
