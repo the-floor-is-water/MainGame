@@ -28,7 +28,7 @@ public class punchBlocks : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {        
         float ms = movingSpeed * velocityAd;
         if (paused)
