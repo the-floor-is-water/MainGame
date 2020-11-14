@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using System;
 
 public class Configuraciones : MonoBehaviour
@@ -22,6 +23,14 @@ public class Configuraciones : MonoBehaviour
     public Text lbCantVolumenAudio;
     public Text lbContVolumenEfectos;
 
+    public GameObject   primerControlInicio,
+                        primerControlPrincipal,
+                        primerControlAjustes,
+                        primerControlIniciarPartida,
+                        primerContenidoEspecial,
+                        primerControlCreditos,
+                        primerControlConsejos;
+
     private string[] namesOptions;
 
     void Start() {
@@ -33,9 +42,44 @@ public class Configuraciones : MonoBehaviour
         setValueEfectos(Config.configuraciones.volumenefectos);
     }
 
-    
+    //====================================================
+    //      FUNCIONES DE MANEJO DE INTERFAZ POR CONTROL
+    //====================================================
+    public void setEventSystemOnSettings()
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(this.primerControlAjustes);
+    }
+    public void setEventSystemOnPrincipal()
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(this.primerControlPrincipal);
+    }
+    public void setEventSystemOnStartMatch()
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(this.primerControlIniciarPartida);
+    }
+    public void setEventSystemOnSpecialContent()
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(this.primerContenidoEspecial);
+    }
+    public void setEventSystemOnCredits()
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(this.primerControlCreditos);
+    }
+    public void setEventSystemOnTips()
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(this.primerControlConsejos);
+    }
 
-   public void loadOptions() {
+    //====================================================
+    //              FUNCIONES DE CONFIGURACION
+    //====================================================
+    public void loadOptions() {
        
     this.namesOptions = QualitySettings.names;
     
