@@ -31,6 +31,10 @@ public class Configuraciones : MonoBehaviour
                         primerControlCreditos,
                         primerControlConsejos;
 
+    public GameObject   primerControlDeGraficos, 
+                        primerControlDeControles;
+  
+
     private string[] namesOptions;
 
     void Start() {
@@ -45,6 +49,15 @@ public class Configuraciones : MonoBehaviour
     //====================================================
     //      FUNCIONES DE MANEJO DE INTERFAZ POR CONTROL
     //====================================================
+    public void setEventSystemOnControls(){
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(this.primerControlDeControles);
+    }
+    public void setEventSystemOnGraphics(){
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(this.primerControlDeGraficos);
+    }
+
     public void setEventSystemOnSettings()
     {
         EventSystem.current.SetSelectedGameObject(null);

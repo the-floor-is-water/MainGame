@@ -1,13 +1,13 @@
 ﻿<Properties StartupConfiguration="{8A23F78B-8939-2B60-F458-7E6B57885877}|">
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/configuracion del juego/Configuraciones.cs">
     <Files>
-      <File FileName="Assets/Scripts/in game/pause.cs" Line="5" Column="1" />
-      <File FileName="Assets/Scripts/configuracion del juego/Configuraciones.cs" Line="8" Column="20" />
+      <File FileName="Assets/Scripts/in game/pause.cs" Line="101" Column="5" />
+      <File FileName="Assets/Scripts/configuracion del juego/Configuraciones.cs" Line="26" Column="45" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="c36ade4d-3d29-40ca-8cc6-ca326a41cbe7" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="739b7d17-bc15-4306-9066-c74b38c3d783" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
