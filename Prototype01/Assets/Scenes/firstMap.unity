@@ -4516,17 +4516,17 @@ PrefabInstance:
         type: 3}
       propertyPath: efectos.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1914029446}
     - target: {fileID: 8074748715698653538, guid: 933bf33c9aca7214485448e8760ce02b,
         type: 3}
       propertyPath: efectos.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 615242366}
     - target: {fileID: 8074748715698653538, guid: 933bf33c9aca7214485448e8760ce02b,
         type: 3}
       propertyPath: efectos.Array.data[2]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 977163158}
     - target: {fileID: 8074748715698653538, guid: 933bf33c9aca7214485448e8760ce02b,
         type: 3}
       propertyPath: matP1
@@ -8345,17 +8345,17 @@ PrefabInstance:
         type: 3}
       propertyPath: efectos.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1914029446}
     - target: {fileID: 8074748715698653538, guid: 933bf33c9aca7214485448e8760ce02b,
         type: 3}
       propertyPath: efectos.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 615242366}
     - target: {fileID: 8074748715698653538, guid: 933bf33c9aca7214485448e8760ce02b,
         type: 3}
       propertyPath: efectos.Array.data[2]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 977163158}
     - target: {fileID: 8074748715698653538, guid: 933bf33c9aca7214485448e8760ce02b,
         type: 3}
       propertyPath: matP1
@@ -8531,6 +8531,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &615242366 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 798135870071204769, guid: ccdee7bc4547eec47a74181a14226ec1,
+    type: 3}
+  m_PrefabInstance: {fileID: 880843798}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &616259208 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6573982833822169130, guid: ed92c80e130ad414691410e54115f57c,
@@ -12667,6 +12673,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 970135251}
   m_CullTransparentMesh: 0
+--- !u!1 &977163158 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8831179622924197476, guid: ec3e3770b3e1e0243862163035417000,
+    type: 3}
+  m_PrefabInstance: {fileID: 176813385}
+  m_PrefabAsset: {fileID: 0}
 --- !u!20 &979349665 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 8074748715204177264, guid: 933bf33c9aca7214485448e8760ce02b,
@@ -16265,17 +16277,17 @@ PrefabInstance:
         type: 3}
       propertyPath: efectos.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1914029446}
     - target: {fileID: 8074748715698653538, guid: 933bf33c9aca7214485448e8760ce02b,
         type: 3}
       propertyPath: efectos.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 615242366}
     - target: {fileID: 8074748715698653538, guid: 933bf33c9aca7214485448e8760ce02b,
         type: 3}
       propertyPath: efectos.Array.data[2]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 977163158}
     - target: {fileID: 8074748715698653538, guid: 933bf33c9aca7214485448e8760ce02b,
         type: 3}
       propertyPath: matP1
@@ -23385,17 +23397,17 @@ PrefabInstance:
         type: 3}
       propertyPath: efectos.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1914029446}
     - target: {fileID: 8074748715698653538, guid: 933bf33c9aca7214485448e8760ce02b,
         type: 3}
       propertyPath: efectos.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 615242366}
     - target: {fileID: 8074748715698653538, guid: 933bf33c9aca7214485448e8760ce02b,
         type: 3}
       propertyPath: efectos.Array.data[2]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 977163158}
     - target: {fileID: 8074748715698653538, guid: 933bf33c9aca7214485448e8760ce02b,
         type: 3}
       propertyPath: matP1
@@ -24381,6 +24393,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8074748715698653542, guid: 933bf33c9aca7214485448e8760ce02b,
     type: 3}
   m_PrefabInstance: {fileID: 574787603}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1914029446 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 654321635058685140, guid: e99d90301255c844988132cb13b4ee48,
+    type: 3}
+  m_PrefabInstance: {fileID: 1191489342}
   m_PrefabAsset: {fileID: 0}
 --- !u!43 &1925033181
 Mesh:
