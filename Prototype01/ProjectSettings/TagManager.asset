@@ -23,6 +23,7 @@ TagManager:
   - EaglePucnch
   - jugador
   - Musica
+  - espera
   layers:
   - Default
   - TransparentFX

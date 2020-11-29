@@ -97,6 +97,7 @@ public class Controles : MonoBehaviour
     //Right click
     public bool rClick;
     //Referencia al jugador n
+    public bool active = true;
     public GameObject Contenedor;
     void Start()
     {
@@ -106,7 +107,7 @@ public class Controles : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Contenedor.tag == "Teclado")
+        if (Contenedor.tag == "Teclado" && active)
         {
             moveHL = Input.GetAxis("HorizontalTeclado");
             moveVL = Input.GetAxis("VerticalTeclado");
@@ -124,7 +125,7 @@ public class Controles : MonoBehaviour
             Tab = Input.GetKeyDown(KeyCode.Tab);
            
         }
-        if (Contenedor.tag == "Jugador1")
+        if (Contenedor.tag == "Jugador1" && active)
         {
             rTriggerFloat = Input.GetAxis("Right Trigger");
             lTriggerFloat = Input.GetAxis("Left Trigger");
@@ -144,7 +145,7 @@ public class Controles : MonoBehaviour
             moveVR = Input.GetAxis("Mouse Y");
             JLeftB = Input.GetButtonDown("J Button L");
         }
-        if (Contenedor.tag == "Jugador2")
+        if (Contenedor.tag == "Jugador2" && active)
         {
             rTriggerFloat = Input.GetAxis("Right Trigger2");
             lTriggerFloat = Input.GetAxis("Left Trigger2");
@@ -164,7 +165,7 @@ public class Controles : MonoBehaviour
             moveVR = Input.GetAxis("Mouse Y2");
             JLeftB = Input.GetButtonDown("J Button L2");
         }
-        if (Contenedor.tag == "Jugador3")
+        if (Contenedor.tag == "Jugador3" && active)
         {
             rTriggerFloat = Input.GetAxis("Right Trigger3");
             lTriggerFloat = Input.GetAxis("Left Trigger3");
@@ -184,7 +185,7 @@ public class Controles : MonoBehaviour
             moveVR = Input.GetAxis("Mouse Y3");
             JLeftB = Input.GetButtonDown("J Button L3");
         }
-        if (Contenedor.tag == "Jugador4")
+        if (Contenedor.tag == "Jugador4" && active)
         {
             rTriggerFloat = Input.GetAxis("Right Trigger4");
             lTriggerFloat = Input.GetAxis("Left Trigger4");
