@@ -122,7 +122,7 @@ MonoBehaviour:
   m_MinSize: {x: 679, y: 492}
   m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
-  controlID: 9701
+  controlID: 474
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 9668
+  controlID: 475
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 9669
+  controlID: 476
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -398,10 +398,10 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 603}
-      m_SelectedIDs: 8a830600
-      m_LastClickedID: 426890
-      m_ExpandedIDs: c803fdffd203fdff6219fdfff02afdff442bfdff383bfdff423bfdff3042fdff8ed1ffff26d2ffff4ad4ffffa8dcffff38f2ffff34fbffffea5e0000b88206008a830600
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 68edffff
+      m_LastClickedID: -4760
+      m_ExpandedIDs: 34fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -513,7 +513,7 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: 0.06367919, y: -0.8525763, z: 0.106966294, w: 0.5075625}
     speed: 2
-    m_Value: {x: 0.06383948, y: -0.85181284, z: 0.1068705, w: 0.5088401}
+    m_Value: {x: -0.0636791, y: 0.8525751, z: -0.10696614, w: -0.5075618}
   m_Size:
     m_Target: 66.82055
     speed: 2
@@ -607,21 +607,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets
     m_Globs: []
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
+  - Assets
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\Ceti\Proyecto\MainGame\Prototype01
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: 36530000
-    m_LastClickedID: 21302
-    m_ExpandedIDs: 00000000085300000a5300000c5300000e53000000ca9a3b
+    m_SelectedIDs: 14660000
+    m_LastClickedID: 26132
+    m_ExpandedIDs: 000000001466000016660000186600001a66000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -649,7 +649,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000085300000a5300000c5300000e53000000ca9a3b
+    m_ExpandedIDs: 000000001466000016660000186600001a66000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
