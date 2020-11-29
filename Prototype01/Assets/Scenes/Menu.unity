@@ -7971,8 +7971,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalAxis: HorizontalTeclado
-  m_VerticalAxis: VerticalTeclado
+  m_HorizontalAxis: HorizontalU
+  m_VerticalAxis: VerticalU
   m_SubmitButton: Submit
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10

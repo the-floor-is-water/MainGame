@@ -25,7 +25,10 @@ public class pause: MonoBehaviour{
     public GameObject firtsControlOnPrincipal, firstControlOnSettings, firstControlOnExit;
 
     public GameObject PanelPrincipal, PanelAjustes, PanelSalir;
-
+    public Controles controlManager;
+    public Controles controlManager2;
+    public Controles controlManager3;
+    public Controles controlManager4;
     void Start(){
 
         this.sources = GameObject.FindSceneObjectsOfType(typeof(AudioSource)) as AudioSource[];
@@ -36,7 +39,7 @@ public class pause: MonoBehaviour{
 
     void Update() {
         
-        if( Input.GetKeyDown( KeyCode.Escape ) )
+        if( Input.GetKeyDown( KeyCode.Escape ) || controlManager.startButton || controlManager2.startButton || controlManager3.startButton || controlManager4.startButton)
         {
             if( !this.enPausa )
             {

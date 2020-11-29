@@ -131,7 +131,7 @@ public class Controles : MonoBehaviour
             leftBumper = Input.GetButton("Left Bumper");
             rightBumper = Input.GetButton("Right Bumper");
             backButton = Input.GetButton("Back");
-            startButton = Input.GetButton("Start");
+            startButton = Input.GetButtonDown("Start");
             aButton = Input.GetButtonDown("A Button");
             bButton = Input.GetButtonDown("B Button");
             xButton = Input.GetButtonDown("X Button");
@@ -151,7 +151,7 @@ public class Controles : MonoBehaviour
             leftBumper = Input.GetButton("Left Bumper2");
             rightBumper = Input.GetButton("Right Bumper2");
             backButton = Input.GetButton("Back2");
-            startButton = Input.GetButton("Start2");
+            startButton = Input.GetButtonDown("Start2");
             aButton = Input.GetButtonDown("A Button2");
             bButton = Input.GetButtonDown("B Button2");
             xButton = Input.GetButtonDown("X Button2");
@@ -171,7 +171,7 @@ public class Controles : MonoBehaviour
             leftBumper = Input.GetButton("Left Bumper3");
             rightBumper = Input.GetButton("Right Bumper3");
             backButton = Input.GetButton("Back3");
-            startButton = Input.GetButton("Start3");
+            startButton = Input.GetButtonDown("Start3");
             aButton = Input.GetButtonDown("A Button3");
             bButton = Input.GetButtonDown("B Button3");
             xButton = Input.GetButtonDown("X Button3");
@@ -191,7 +191,7 @@ public class Controles : MonoBehaviour
             leftBumper = Input.GetButton("Left Bumper4");
             rightBumper = Input.GetButton("Right Bumper4");
             backButton = Input.GetButton("Back4");
-            startButton = Input.GetButton("Start4");
+            startButton = Input.GetButtonDown("Start4");
             aButton = Input.GetButtonDown("A Button4");
             bButton = Input.GetButtonDown("B Button4");
             xButton = Input.GetButtonDown("X Button4");
