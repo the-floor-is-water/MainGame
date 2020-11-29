@@ -22,7 +22,9 @@ public class pause: MonoBehaviour{
     private AudioSource[] sources;
 
 
-    public GameObject firtsControlOnPrincipal, firstControlOnSettings, firstControlOnExit; 
+    public GameObject firtsControlOnPrincipal, firstControlOnSettings, firstControlOnExit;
+
+    public GameObject PanelPrincipal, PanelAjustes, PanelSalir;
 
     void Start(){
 
@@ -41,8 +43,6 @@ public class pause: MonoBehaviour{
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
                 Time.timeScale = 0;
-                EventSystem.current.SetSelectedGameObject(null);
-                EventSystem.current.SetSelectedGameObject(firtsControlOnPrincipal);
             }
             else
             {
@@ -53,6 +53,7 @@ public class pause: MonoBehaviour{
 
             this.enPausa = !this.enPausa;
             menuDePausa.SetActive( this.enPausa );
+            this.initPause(this.enPausa);
             slots.SetActive( !this.enPausa );
             controlDeCamara.enabled = !this.enPausa;
             
@@ -86,6 +87,16 @@ public class pause: MonoBehaviour{
         controlDeCamara.enabled = !this.enPausa;
     }
 
+    private void initPause(bool enPausa)
+    {
+        if (enPausa)
+        {
+            this.PanelPrincipal.SetActive(enPausa);
+            this.PanelAjustes.SetActive(!enPausa);
+            this.PanelSalir.SetActive(!enPausa);
+            setEventSystemOnPrincipal();
+        }
+    }
 
     public void setEventSystemOnSettings(){
         EventSystem.current.SetSelectedGameObject(null);
